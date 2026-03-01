@@ -1,0 +1,60 @@
+{
+  "name": "@tribeweb/nuxt-google-sheets-import",
+  "version": "0.1.0",
+  "description": "Schema-driven Google Sheets import module for Nuxt Content",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/tribeweb/metzner/tree/main/packages/nuxt-google-sheets-import",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tribeweb/metzner.git",
+    "directory": "packages/nuxt-google-sheets-import"
+  },
+  "bugs": {
+    "url": "https://github.com/tribeweb/metzner/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/module.mjs",
+  "types": "./dist/module.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "nuxt-module-build",
+    "dev:prepare": "nuxt-module-build --stub",
+    "lint": "eslint src --ext .ts,.vue",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "smoke:playground": "node playground/scripts/smoke.mjs",
+    "pack:dry-run": "npm pack --dry-run",
+    "release:check": "pnpm lint && pnpm build && pnpm pack:dry-run",
+    "release:bump:patch": "npm version patch --no-git-tag-version",
+    "release:bump:minor": "npm version minor --no-git-tag-version",
+    "release:bump:major": "npm version major --no-git-tag-version",
+    "release:patch": "pnpm release:bump:patch && pnpm release:check && pnpm publish --access public",
+    "release:minor": "pnpm release:bump:minor && pnpm release:check && pnpm publish --access public",
+    "release:major": "pnpm release:bump:major && pnpm release:check && pnpm publish --access public"
+  },
+  "peerDependencies": {
+    "nuxt": "^4.0.0"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.3.1",
+    "js-yaml": "^4.1.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.2",
+    "@types/js-yaml": "^4.0.9",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.5"
+  }
+}
