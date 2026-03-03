@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { columnCountToRange } from '../utils/googleSheets'
 
 const querySchema = z.object({
-  spreadsheetId: z.string().length(44)
+  spreadsheetId: z.string().length(44),
 })
 
 type GoogleSheetsResponse = {
@@ -34,8 +34,8 @@ export default defineEventHandler(async (event) => {
       const columnCount = sheet.properties?.gridProperties?.columnCount ?? 1
       return {
         label: sheet.properties?.title ?? '',
-        range: columnCountToRange(columnCount)
+        range: columnCountToRange(columnCount),
       }
-    }).filter(sheet => sheet.label)
+    }).filter(sheet => sheet.label),
   }
 })

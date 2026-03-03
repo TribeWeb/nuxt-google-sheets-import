@@ -10,7 +10,7 @@ const bodySchema = z.object({
   orderKey: z.string().optional(),
   contentDir: z.string().optional(),
   outputFormat: z.enum(['frontmatter', 'json', 'yaml']).optional().default('frontmatter'),
-  overwriteMode: z.enum(['skip', 'overwrite', 'overwrite-frontmatter']).optional().default('overwrite')
+  overwriteMode: z.enum(['skip', 'overwrite', 'overwrite-frontmatter']).optional().default('overwrite'),
 })
 
 type CollectionType = 'page' | 'data'
@@ -18,7 +18,7 @@ type CollectionType = 'page' | 'data'
 function resolveContentDirByCollectionType(
   collectionType: CollectionType | 'unknown',
   schemaKey: string | undefined,
-  fallback: string
+  fallback: string,
 ): string {
   if (collectionType === 'page') {
     return 'content'
@@ -38,7 +38,7 @@ function resolveContentDirByCollectionType(
     + `Using fallback content directory "${fallback}". `
     + 'Add googleSheetsImport.collectionTypeBySchema["'
     + normalizedSchemaKey
-    + '"] in nuxt.config.ts to route writes automatically.'
+    + '"] in nuxt.config.ts to route writes automatically.',
   )
 
   return fallback
@@ -60,7 +60,7 @@ export default defineEventHandler(async (event) => {
   const summary = {
     written: 0,
     overwritten: 0,
-    skipped: 0
+    skipped: 0,
   }
 
   for (const record of body.records) {
@@ -71,7 +71,7 @@ export default defineEventHandler(async (event) => {
       slugKey: body.slugKey,
       orderKey: body.orderKey,
       outputFormat: body.outputFormat,
-      overwriteMode: body.overwriteMode
+      overwriteMode: body.overwriteMode,
     })
 
     logs.push(result.filePath)
@@ -82,6 +82,6 @@ export default defineEventHandler(async (event) => {
     count: logs.length,
     logs,
     contentDir: resolvedContentDir,
-    summary
+    summary,
   }
 })

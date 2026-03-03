@@ -213,10 +213,10 @@ function toTypedCellValue(rawValue: string | undefined, schema: z.ZodTypeAny | n
   }
 
   if (unwrapped instanceof z.ZodBoolean) {
-    if (/^(true|1|yes)$/i.test(value)) {
+    if (/^(?:true|1|yes)$/i.test(value)) {
       return true
     }
-    if (/^(false|0|no)$/i.test(value)) {
+    if (/^(?:false|0|no)$/i.test(value)) {
       return false
     }
   }
@@ -242,7 +242,7 @@ function formatZodError(error: z.ZodError): string {
 
 export function transformAndValidateRows(
   values: string[][],
-  schema: z.ZodTypeAny
+  schema: z.ZodTypeAny,
 ): { records: Record<string, unknown>[], errors: string[] } {
   if (!values?.length) {
     return { records: [], errors: [] }

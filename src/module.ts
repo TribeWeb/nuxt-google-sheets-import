@@ -5,7 +5,7 @@ import {
   addServerImports,
   addServerHandler,
   createResolver,
-  defineNuxtModule
+  defineNuxtModule,
 } from '@nuxt/kit'
 
 export interface ModuleOptions {
@@ -20,15 +20,15 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-google-sheets-import',
-    configKey: 'googleSheetsImport'
+    configKey: 'googleSheetsImport',
   },
   moduleDependencies: {
     '@nuxt/ui': {
       version: '>=4',
     },
     '@nuxt/content': {
-      version: '>=3'
-    }
+      version: '>=3',
+    },
   },
   defaults: {
     apiBase: '/api/google-sheets-import',
@@ -36,7 +36,7 @@ export default defineNuxtModule<ModuleOptions>({
     defaultContentDir: 'content/data',
     collectionTypeBySchema: {},
     schemaRegistryImport: '#imports',
-    schemaRegistryExport: 'schemas'
+    schemaRegistryExport: 'schemas',
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -54,93 +54,92 @@ export default defineNuxtModule<ModuleOptions>({
       defaultContentDir: options.defaultContentDir,
       collectionTypeBySchema: normalizedCollectionTypeBySchema,
       schemaRegistryImport: options.schemaRegistryImport,
-      schemaRegistryExport: options.schemaRegistryExport
+      schemaRegistryExport: options.schemaRegistryExport,
     }
 
     nuxt.options.runtimeConfig.public.googleSheetsImport = {
       apiBase: options.apiBase,
       defaultContentDir: options.defaultContentDir,
-      collectionTypeBySchema: normalizedCollectionTypeBySchema
+      collectionTypeBySchema: normalizedCollectionTypeBySchema,
     }
 
     nuxt.options.css.push(resolver.resolve('./runtime/assets/css/main.css'))
 
-
     addServerHandler({
       route: `${options.apiBase}/sheets`,
       method: 'get',
-      handler: resolver.resolve('./runtime/server/api/sheets.get')
+      handler: resolver.resolve('./runtime/server/api/sheets.get'),
     })
 
     addServerHandler({
       route: `${options.apiBase}/values`,
       method: 'post',
-      handler: resolver.resolve('./runtime/server/api/values.post')
+      handler: resolver.resolve('./runtime/server/api/values.post'),
     })
 
     addServerHandler({
       route: `${options.apiBase}/collection-type`,
       method: 'get',
-      handler: resolver.resolve('./runtime/server/api/collection-type.get')
+      handler: resolver.resolve('./runtime/server/api/collection-type.get'),
     })
 
     addServerHandler({
       route: `${options.apiBase}/schema-columns`,
       method: 'get',
-      handler: resolver.resolve('./runtime/server/api/schema-columns.get')
+      handler: resolver.resolve('./runtime/server/api/schema-columns.get'),
     })
 
     addServerHandler({
       route: `${options.apiBase}/write`,
       method: 'post',
-      handler: resolver.resolve('./runtime/server/api/write.post')
+      handler: resolver.resolve('./runtime/server/api/write.post'),
     })
 
     addImportsDir(resolver.resolve('./runtime/composables'))
 
     addComponentsDir({
-      path: resolver.resolve('./runtime/components')
+      path: resolver.resolve('./runtime/components'),
     })
 
     addImports([
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiValues',
-        type: true
+        type: true,
       },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiValuesResponse',
-        type: true
+        type: true,
       },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiSheet',
-        type: true
+        type: true,
       },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiSheetResponse',
-        type: true
+        type: true,
       },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'ProductObject',
-        type: true
+        type: true,
       },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'TransformedGoogleSheetsApiResult',
-        type: true
-      }
+        type: true,
+      },
     ])
 
     addServerImports([
       {
         from: options.schemaRegistryImport,
         name: options.schemaRegistryExport,
-        as: 'googleSheetsImportSchemas'
-      }
+        as: 'googleSheetsImportSchemas',
+      },
     ])
-  }
+  },
 })

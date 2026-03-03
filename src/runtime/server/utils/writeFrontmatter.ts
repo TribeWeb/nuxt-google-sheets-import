@@ -7,7 +7,7 @@ export type WriteOverwriteMode = 'skip' | 'overwrite' | 'overwrite-frontmatter'
 export type WriteAction = 'written' | 'overwritten' | 'skipped'
 
 function sanitizePathSegment(segment: string): string {
-  return segment.replace(/(^\/+|\/+?$)/g, '').replace(/\.\./g, '')
+  return segment.replace(/(^\/+|\/+$)/g, '').replace(/\.\./g, '')
 }
 
 function getByPath(object: Record<string, unknown>, keyPath: string): unknown {
@@ -38,7 +38,8 @@ async function fileExists(filePath: string): Promise<boolean> {
   try {
     await access(filePath)
     return true
-  } catch {
+  }
+  catch {
     return false
   }
 }
@@ -104,7 +105,7 @@ export async function writeRecordAsFrontmatter(input: WriteRecordInput): Promise
   if (exists && overwriteMode === 'skip') {
     return {
       filePath,
-      action: 'skipped'
+      action: 'skipped',
     }
   }
 
@@ -115,7 +116,7 @@ export async function writeRecordAsFrontmatter(input: WriteRecordInput): Promise
     await writeFile(filePath, `${nextFrontmatter}${markdownBody}`, 'utf-8')
     return {
       filePath,
-      action: 'overwritten'
+      action: 'overwritten',
     }
   }
 
@@ -123,6 +124,6 @@ export async function writeRecordAsFrontmatter(input: WriteRecordInput): Promise
 
   return {
     filePath,
-    action: exists ? 'overwritten' : 'written'
+    action: exists ? 'overwritten' : 'written',
   }
 }

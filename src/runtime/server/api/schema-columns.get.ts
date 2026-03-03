@@ -5,7 +5,7 @@ import { resolveCollectionTypeBySchema } from '../utils/collectionType'
 import { getSchemaColumns, PAGE_SCHEMA_OVERRIDE_COLUMNS } from '../utils/schemaColumns'
 
 const querySchema = z.object({
-  schema: z.string().optional()
+  schema: z.string().optional(),
 })
 
 export default defineEventHandler(async (event) => {
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
       schemas: availableSchemas,
       columns: [],
       collectionType: 'unknown',
-      pageOverrideColumns: []
+      pageOverrideColumns: [],
     }
   }
 
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
   if (!selectedSchema) {
     throw createError({
       statusCode: 400,
-      statusMessage: `Unknown schema: ${schema}`
+      statusMessage: `Unknown schema: ${schema}`,
     })
   }
 
@@ -43,6 +43,6 @@ export default defineEventHandler(async (event) => {
     schemas: availableSchemas,
     columns: getSchemaColumns(selectedSchema),
     collectionType,
-    pageOverrideColumns: collectionType === 'page' ? PAGE_SCHEMA_OVERRIDE_COLUMNS : []
+    pageOverrideColumns: collectionType === 'page' ? PAGE_SCHEMA_OVERRIDE_COLUMNS : [],
   }
 })

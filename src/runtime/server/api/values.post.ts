@@ -6,7 +6,7 @@ const bodySchema = z.object({
   spreadsheetId: z.string().length(44),
   sheetTitle: z.string().min(1),
   range: z.string().min(1),
-  schema: z.string().min(1)
+  schema: z.string().min(1),
 })
 
 interface ValuesResponse {
@@ -38,6 +38,6 @@ export default defineEventHandler(async (event) => {
   return {
     headers: values[0] ?? [],
     records: transformed.records,
-    errors: transformed.errors
+    errors: transformed.errors,
   }
 })

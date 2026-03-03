@@ -8,7 +8,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  initialSchema: ''
+  initialSchema: '',
 })
 
 const { getSchemaColumns } = useGoogleSheetsImport()
@@ -24,7 +24,7 @@ const error = ref('')
 
 const schemaOptions = computed(() => availableSchemas.value.map(schema => ({
   label: schema,
-  value: schema
+  value: schema,
 })))
 
 async function loadSchemas() {
@@ -38,7 +38,8 @@ async function loadSchemas() {
       ? props.initialSchema
       : response.schemas[0] ?? ''
     status.value = 'success'
-  } catch (cause) {
+  }
+  catch (cause) {
     status.value = 'error'
     error.value = cause instanceof Error ? cause.message : 'Could not load schema list.'
   }
@@ -59,7 +60,8 @@ async function loadColumns(schema: string) {
     collectionType.value = response.collectionType
     pageOverrideColumns.value = response.pageOverrideColumns
     status.value = 'success'
-  } catch (cause) {
+  }
+  catch (cause) {
     columns.value = []
     collectionType.value = 'unknown'
     pageOverrideColumns.value = []
@@ -89,7 +91,7 @@ function copyColumns() {
   toast.add({
     title: 'Copied',
     description: 'Column names copied to clipboard.',
-    color: 'success'
+    color: 'success',
   })
 }
 
@@ -112,7 +114,7 @@ function copyColumnsCsv() {
   toast.add({
     title: 'Copied',
     description: 'Column names copied as a CSV row.',
-    color: 'success'
+    color: 'success',
   })
 }
 
@@ -126,7 +128,7 @@ function copyPageOverrideColumns() {
   toast.add({
     title: 'Copied',
     description: 'Page override column names copied to clipboard.',
-    color: 'success'
+    color: 'success',
   })
 }
 
@@ -140,7 +142,7 @@ function copyPageOverrideColumnsCsv() {
   toast.add({
     title: 'Copied',
     description: 'Page override column names copied as a CSV row.',
-    color: 'success'
+    color: 'success',
   })
 }
 </script>

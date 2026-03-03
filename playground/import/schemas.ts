@@ -5,7 +5,7 @@ export const machinesSmoke = z.object({
   modelId: z.string().min(1),
   machineName: z.string().min(1),
   cutRate: z.number(),
-  featurePrimary: z.string().optional()
+  featurePrimary: z.string().optional(),
 })
 
 export const example = z.object({
@@ -22,17 +22,17 @@ export const example = z.object({
   boolean: z.coerce.boolean(),
   object: z.object({
     key1: z.string().min(1),
-    key2: z.string().min(1)
+    key2: z.string().min(1),
   }),
   objectArray: z.array(
     z.object({
       keyA: z.string().min(1),
-      keyB: z.string().min(1)
-    })
-  )
+      keyB: z.string().min(1),
+    }),
+  ),
 })
 
 export const schemas = {
   machinesSmoke,
-  example
+  example,
 }

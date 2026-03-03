@@ -12,7 +12,7 @@ const googleSheetSchema = z.object({
   spreadsheetId: z.string().length(44),
   sheetTitle: z.string(),
   range: z.string(),
-  schema: z.string()
+  schema: z.string(),
 })
 
 const {
@@ -23,7 +23,7 @@ const {
   upperCaseRange,
   selectedSheetPreview,
   canLoadValues,
-  sourceQuery
+  sourceQuery,
 } = useGoogleSheetsImportWorkflow()
 
 watch(sourceStatus, (value) => {
@@ -37,7 +37,7 @@ watch(sourceError, (value) => {
     toast.add({
       title: 'Error',
       description: value,
-      color: 'error'
+      color: 'error',
     })
   }
 })

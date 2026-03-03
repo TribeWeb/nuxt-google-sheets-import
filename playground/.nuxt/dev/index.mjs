@@ -2554,16 +2554,16 @@ _eFN1hUNjXlIct4RFxIH9bjnEEWLbJPuw4glshKvwV0
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"26bbe-u9H4GnLVvfgo8I094Y2uAcF2iGU\"",
-    "mtime": "2026-03-03T00:10:03.793Z",
-    "size": 158654,
+    "etag": "\"26bf6-LfwnVUX/dIXIknI+oQLmnEboXzg\"",
+    "mtime": "2026-03-03T07:08:58.191Z",
+    "size": 158710,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"925f9-u6jUhDYt1E3jn0yj09NJfaAkoYM\"",
-    "mtime": "2026-03-03T00:10:03.794Z",
-    "size": 599545,
+    "etag": "\"926fd-GH60189mSUSSQvEUDcdNI0E7vh4\"",
+    "mtime": "2026-03-03T07:08:58.192Z",
+    "size": 599805,
     "path": "index.mjs.map"
   }
 };
@@ -3243,10 +3243,10 @@ function toTypedCellValue(rawValue, schema) {
     return value.split(",").map((item) => item.trim()).filter(Boolean);
   }
   if (unwrapped instanceof z.ZodBoolean) {
-    if (/^(true|1|yes)$/i.test(value)) {
+    if (/^(?:true|1|yes)$/i.test(value)) {
       return true;
     }
-    if (/^(false|0|no)$/i.test(value)) {
+    if (/^(?:false|0|no)$/i.test(value)) {
       return false;
     }
   }
@@ -3531,7 +3531,7 @@ const _mqrAGr = defineEventHandler(async (event) => {
 });
 
 function sanitizePathSegment(segment) {
-  return segment.replace(/(^\/+|\/+?$)/g, "").replace(/\.\./g, "");
+  return segment.replace(/(^\/+|\/+$)/g, "").replace(/\.\./g, "");
 }
 function getByPath(object, keyPath) {
   return keyPath.split(".").reduce((acc, key) => {
@@ -3759,10 +3759,10 @@ async function runTask(name, {
 }
 
 const checksums = {
-  "exampleSchema": "v3.5.0--wE1Dw_HM0CHChQ3OC0yAhu7Vy9I8qgj_Q0BD5Rngbqc"
+  "exampleSchema": "v3.5.0--44uznqLnK2EhV3WoxEGHtrsASfJ_cNntnHCPRKtHLcQ"
 };
 const checksumsStructure = {
-  "exampleSchema": "aFM3is-pK0WChJBHWyrxH9tqqxDrlcn2D5MhCsjau5s"
+  "exampleSchema": "i16zT1mI3iH6SxfgI8Vw8dZWYEHeP9OdU_KDf4ZWKZ0"
 };
 const tables = {
   "exampleSchema": "_content_exampleSchema",
@@ -3786,8 +3786,10 @@ const contentManifest = {
       "number": "number",
       "object": "json",
       "objectArray": "json",
+      "pageOrder": "number",
       "path": "string",
       "seo": "json",
+      "slug": "string",
       "stem": "string",
       "string": "string",
       "stringArray": "json",
