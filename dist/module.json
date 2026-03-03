@@ -1,9 +1,0 @@
-{
-  "name": "nuxt-google-sheets-import",
-  "configKey": "googleSheetsImport",
-  "version": "1.0.0",
-  "builder": {
-    "@nuxt/module-builder": "1.0.2",
-    "unbuild": "unknown"
-  }
-}

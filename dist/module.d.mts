@@ -1,2 +1,0 @@
-export * from "/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/src/module.js";
-export { default } from "/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/src/module.js";
