@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { resolveCollectionTypeBySchema } from '../utils/collectionType'
 
 const querySchema = z.object({
-  schema: z.string().optional()
+  schema: z.string().optional(),
 })
 
 type CollectionType = 'page' | 'data'
@@ -27,6 +27,6 @@ export default defineEventHandler(async (event) => {
   return {
     schema: schema ?? null,
     collectionType,
-    baseContentDir
+    baseContentDir,
   }
 })

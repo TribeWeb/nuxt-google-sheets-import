@@ -48,7 +48,8 @@ async function readCollectionTypeBySchemaFromContentConfig(): Promise<Record<str
         setCollectionType(result, schemaKey, collectionType)
       }
     }
-  } catch {
+  }
+  catch {
     cachedCollectionTypeBySchema = {}
     return cachedCollectionTypeBySchema
   }
@@ -59,7 +60,7 @@ async function readCollectionTypeBySchemaFromContentConfig(): Promise<Record<str
 
 export async function resolveCollectionTypeBySchema(
   schemaKey: string | undefined,
-  collectionTypeBySchemaFromConfig: Record<string, CollectionType>
+  collectionTypeBySchemaFromConfig: Record<string, CollectionType>,
 ): Promise<CollectionType | 'unknown'> {
   if (!schemaKey) {
     return 'unknown'
@@ -68,7 +69,7 @@ export async function resolveCollectionTypeBySchema(
   const mappedInContentConfig = await readCollectionTypeBySchemaFromContentConfig()
   const map = {
     ...mappedInContentConfig,
-    ...collectionTypeBySchemaFromConfig
+    ...collectionTypeBySchemaFromConfig,
   }
 
   const normalizedSchemaKey = schemaKey.trim()

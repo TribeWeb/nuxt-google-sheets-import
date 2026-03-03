@@ -27,7 +27,7 @@ export function useGoogleSheetsImport() {
 
   const getSheets = async (spreadsheetId: string) => {
     const response = await $fetch<{ sheets: GoogleSheetOption[] }>(`${apiBase}/sheets`, {
-      query: { spreadsheetId }
+      query: { spreadsheetId },
     })
 
     return response.sheets
@@ -36,13 +36,13 @@ export function useGoogleSheetsImport() {
   const getValues = async (payload: GetValuesPayload) => {
     return await $fetch<{ headers: string[], records: Record<string, unknown>[], errors: string[] }>(`${apiBase}/values`, {
       method: 'POST',
-      body: payload
+      body: payload,
     })
   }
 
   const getCollectionType = async (schema: string) => {
     return await $fetch<{ collectionType: 'page' | 'data' | 'unknown', baseContentDir: string }>(`${apiBase}/collection-type`, {
-      query: { schema }
+      query: { schema },
     })
   }
 
@@ -54,7 +54,7 @@ export function useGoogleSheetsImport() {
       collectionType: 'page' | 'data' | 'unknown'
       pageOverrideColumns: string[]
     }>(`${apiBase}/schema-columns`, {
-      query: schema ? { schema } : undefined
+      query: schema ? { schema } : undefined,
     })
   }
 
@@ -70,7 +70,7 @@ export function useGoogleSheetsImport() {
       }
     }>(`${apiBase}/write`, {
       method: 'POST',
-      body: payload
+      body: payload,
     })
   }
 
@@ -79,6 +79,6 @@ export function useGoogleSheetsImport() {
     getValues,
     getCollectionType,
     getSchemaColumns,
-    writeFiles
+    writeFiles,
   }
 }

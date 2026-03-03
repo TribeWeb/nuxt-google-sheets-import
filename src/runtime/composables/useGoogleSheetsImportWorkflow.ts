@@ -19,7 +19,7 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
   const { getSheets, getValues, getCollectionType, writeFiles } = useGoogleSheetsImport()
   const config = useRuntimeConfig()
   const defaultContentDir = computed(() =>
-    config.public.googleSheetsImport?.defaultContentDir ?? 'content/data'
+    config.public.googleSheetsImport?.defaultContentDir ?? 'content/data',
   )
 
   const sourceStatus = ref<'idle' | 'pending' | 'success' | 'error'>('idle')
@@ -30,18 +30,18 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
     spreadsheetId: undefined,
     sheetTitle: undefined,
     range: undefined,
-    schema: undefined
+    schema: undefined,
   })
 
   const upperCaseRange = computed({
     get: () => source.range,
     set: (value: string | undefined) => {
       source.range = value?.toUpperCase() || ''
-    }
+    },
   })
 
   const selectedSheetPreview = computed(() =>
-    sheetTitles.value.find(sheet => sheet.label === source.sheetTitle)
+    sheetTitles.value.find(sheet => sheet.label === source.sheetTitle),
   )
 
   const sourceQuery = computed<GoogleSheetsImportQuery | null>(() => {
@@ -53,7 +53,7 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
       spreadsheetId: source.spreadsheetId,
       sheetTitle: source.sheetTitle,
       range: source.range,
-      schema: source.schema
+      schema: source.schema,
     }
   })
 
@@ -85,7 +85,8 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
       const resolved = await getCollectionType(schema)
       selectedCollectionType.value = resolved.collectionType
       selectedCollectionTypeStatus.value = 'success'
-    } catch {
+    }
+    catch {
       selectedCollectionType.value = 'unknown'
       selectedCollectionTypeStatus.value = 'error'
     }
@@ -106,7 +107,8 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
     try {
       sheetTitles.value = await getSheets(spreadsheetId)
       sourceStatus.value = 'success'
-    } catch (error) {
+    }
+    catch (error) {
       sourceStatus.value = 'error'
       sheetTitles.value = []
       sourceError.value = error instanceof Error ? error.message : 'Failed to retrieve Google Sheet titles.'
@@ -138,7 +140,7 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
   const writeSummary = ref({
     written: 0,
     overwritten: 0,
-    skipped: 0
+    skipped: 0,
   })
   const values = ref<ImportRecord[]>([])
   const validationErrors = ref<string[]>([])
@@ -149,7 +151,7 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
     slug: undefined as string | undefined,
     order: undefined as string | undefined,
     outputFormat: 'frontmatter' as 'frontmatter' | 'json' | 'yaml',
-    overwriteMode: 'overwrite' as 'skip' | 'overwrite' | 'overwrite-frontmatter'
+    overwriteMode: 'overwrite' as 'skip' | 'overwrite' | 'overwrite-frontmatter',
   })
 
   const resolvedBaseContentDir = computed(() => {
@@ -224,7 +226,8 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
       values.value = response.records
       validationErrors.value = response.errors
       status.value = 'success'
-    } catch (error) {
+    }
+    catch (error) {
       status.value = 'error'
       values.value = []
       importError.value = error instanceof Error ? error.message : 'Could not load values from Google Sheets.'
@@ -247,13 +250,14 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
         slugKey: writeFile.slug,
         orderKey: writeFile.order,
         outputFormat: writeFile.outputFormat,
-        overwriteMode: writeFile.overwriteMode
+        overwriteMode: writeFile.overwriteMode,
       })
 
       logs.value = response.logs
       writeSummary.value = response.summary
       writeStatus.value = 'success'
-    } catch (error) {
+    }
+    catch (error) {
       writeStatus.value = 'error'
       writeError.value = error instanceof Error ? error.message : 'Could not write files.'
     }
@@ -291,7 +295,7 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
     previewRows,
     shownValidationErrors,
     loadValues,
-    writeValues
+    writeValues,
   }
 }
 

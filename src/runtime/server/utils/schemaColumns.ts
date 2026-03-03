@@ -14,7 +14,7 @@ export const PAGE_SCHEMA_OVERRIDE_COLUMNS = [
   'navigation',
   'navigation.title',
   'navigation.description',
-  'navigation.icon'
+  'navigation.icon',
 ]
 
 type UnknownRecord = Record<string, unknown>

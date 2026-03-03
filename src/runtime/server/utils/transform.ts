@@ -242,7 +242,7 @@ function formatZodError(error: z.ZodError): string {
 
 export function transformAndValidateRows(
   values: string[][],
-  schema: z.ZodTypeAny
+  schema: z.ZodTypeAny,
 ): { records: Record<string, unknown>[], errors: string[] } {
   if (!values?.length) {
     return { records: [], errors: [] }

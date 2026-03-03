@@ -11,13 +11,13 @@ const toast = useToast()
 const outputFormatOptions = [
   { label: 'Markdown frontmatter (.md)', value: 'frontmatter' },
   { label: 'JSON (.json)', value: 'json' },
-  { label: 'YAML (.yml)', value: 'yaml' }
+  { label: 'YAML (.yml)', value: 'yaml' },
 ]
 
 const overwriteModeOptions = [
   { label: 'Overwrite existing files', value: 'overwrite' },
   { label: 'Skip files that already exist', value: 'skip' },
-  { label: 'Overwrite frontmatter only (.md only)', value: 'overwrite-frontmatter' }
+  { label: 'Overwrite frontmatter only (.md only)', value: 'overwrite-frontmatter' },
 ]
 
 const {
@@ -40,9 +40,9 @@ const {
   previewRows,
   shownValidationErrors,
   loadValues,
-  writeValues
+  writeValues,
 } = useGoogleSheetsImportWorkflow({
-  query: computed(() => props.query)
+  query: computed(() => props.query),
 })
 
 async function execute() {
@@ -51,7 +51,7 @@ async function execute() {
     toast.add({
       title: 'Validation warnings',
       description: `${validationErrors.value.length} row(s) failed schema validation.`,
-      color: 'warning'
+      color: 'warning',
     })
   }
 
@@ -59,7 +59,7 @@ async function execute() {
     toast.add({
       title: 'Import complete',
       description: `${values.value.length} valid row(s) loaded.`,
-      color: 'success'
+      color: 'success',
     })
   }
 
@@ -67,7 +67,7 @@ async function execute() {
     toast.add({
       title: 'Import failed',
       description: importError.value,
-      color: 'error'
+      color: 'error',
     })
   }
 }
@@ -79,7 +79,7 @@ async function start() {
     toast.add({
       title: 'Files written',
       description: `${writeSummary.value.written} written, ${writeSummary.value.overwritten} overwritten, ${writeSummary.value.skipped} skipped.`,
-      color: 'success'
+      color: 'success',
     })
   }
 
@@ -87,7 +87,7 @@ async function start() {
     toast.add({
       title: 'Write failed',
       description: writeError.value,
-      color: 'error'
+      color: 'error',
     })
   }
 }

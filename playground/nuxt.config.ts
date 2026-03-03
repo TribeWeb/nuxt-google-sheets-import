@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   modules: [
-    '../src/module'
+    '../src/module',
   ],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     defaultContentDir: 'content',
     collectionTypeBySchema: {
       machinesSmoke: 'data',
-      example: 'page'
-    }
-  }
+      example: 'page',
+    },
+  },
 })
