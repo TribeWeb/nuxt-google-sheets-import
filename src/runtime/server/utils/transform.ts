@@ -213,10 +213,10 @@ function toTypedCellValue(rawValue: string | undefined, schema: z.ZodTypeAny | n
   }
 
   if (unwrapped instanceof z.ZodBoolean) {
-    if (/^(true|1|yes)$/i.test(value)) {
+    if (/^(?:true|1|yes)$/i.test(value)) {
       return true
     }
-    if (/^(false|0|no)$/i.test(value)) {
+    if (/^(?:false|0|no)$/i.test(value)) {
       return false
     }
   }

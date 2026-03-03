@@ -1,5 +1,7 @@
 import { z } from 'zod'
 import { resolveCollectionTypeBySchema } from '../utils/collectionType'
+import { defineEventHandler, getValidatedQuery } from 'h3'
+import { useRuntimeConfig } from 'nitropack/runtime'
 
 const querySchema = z.object({
   schema: z.string().optional(),

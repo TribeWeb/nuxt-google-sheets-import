@@ -2,7 +2,6 @@ import {
   addComponentsDir,
   addImports,
   addImportsDir,
-  addServerImports,
   addServerHandler,
   createResolver,
   defineNuxtModule,
@@ -131,14 +130,6 @@ export default defineNuxtModule<ModuleOptions>({
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'TransformedGoogleSheetsApiResult',
         type: true,
-      },
-    ])
-
-    addServerImports([
-      {
-        from: options.schemaRegistryImport,
-        name: options.schemaRegistryExport,
-        as: 'googleSheetsImportSchemas',
       },
     ])
   },

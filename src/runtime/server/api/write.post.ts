@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { writeRecordAsFrontmatter } from '../utils/writeFrontmatter'
 import { resolveCollectionTypeBySchema } from '../utils/collectionType'
+import { defineEventHandler, readBody } from 'h3'
+import { useRuntimeConfig } from 'nitropack/runtime'
 
 const bodySchema = z.object({
   records: z.array(z.record(z.string(), z.unknown())),

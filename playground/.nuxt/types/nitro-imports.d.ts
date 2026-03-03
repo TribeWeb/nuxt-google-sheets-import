@@ -70,7 +70,6 @@ declare global {
   const getSession: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getSession
   const getValidatedQuery: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getValidatedQuery
   const getValidatedRouterParams: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getValidatedRouterParams
-  const googleSheetsImportSchemas: typeof import('../../server/import/schemas').schemas
   const handleCacheHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCacheHeaders
   const handleCors: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCors
   const isCorsOriginAllowed: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isCorsOriginAllowed
@@ -154,7 +153,6 @@ export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from '/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@nuxt+nitro-server@4.3.1_better-sqlite3@12.6.2_db0@0.3.4_better-sqlite3@12.6.2__ioredis_c8342ab9eeca6a666b8c88339ceb526f/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
 export { defineAppConfig } from '/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@nuxt+nitro-server@4.3.1_better-sqlite3@12.6.2_db0@0.3.4_better-sqlite3@12.6.2__ioredis_c8342ab9eeca6a666b8c88339ceb526f/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
-export { schemas as googleSheetsImportSchemas } from '~/import/schemas';
 export { queryCollection, queryCollectionSearchSections, queryCollectionNavigation, queryCollectionItemSurroundings } from '/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/@nuxt/content/dist/runtime/nitro';
 export { parseMarkdown } from '/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@nuxtjs+mdc@0.20.1_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { stringifyMarkdown } from '/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@nuxtjs+mdc@0.20.1_magicast@0.5.2/node_modules/@nuxtjs/mdc/dist/runtime/stringify';

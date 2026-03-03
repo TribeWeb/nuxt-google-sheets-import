@@ -197,12 +197,12 @@ export function useGoogleSheetsImportWorkflow(options: WorkflowOptions = {}) {
     }
 
     if (!writeFile.slug) {
-      const slugCandidate = keys.find(key => /(^|\.)slug$|(^|\.)id$|(^|\.)modelId$/i.test(key))
+      const slugCandidate = keys.find(key => /(?:^|\.)(?:slug|id)$/i.test(key))
       writeFile.slug = slugCandidate ?? keys[0]
     }
 
     if (!writeFile.order) {
-      const orderCandidate = keys.find(key => /(^|\.)order$|(^|\.)pageOrder$/i.test(key))
+      const orderCandidate = keys.find(key => /(?:^|\.)(?:order|pageOrder)$/i.test(key))
       writeFile.order = orderCandidate
     }
   }, { immediate: true })
