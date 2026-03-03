@@ -19,8 +19,16 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'google-sheets-import',
+    name: 'nuxt-google-sheets-import',
     configKey: 'googleSheetsImport'
+  },
+  moduleDependencies: {
+    '@nuxt/ui': {
+      version: '>=4',
+    },
+    '@nuxt/content': {
+      version: '>=3'
+    }
   },
   defaults: {
     apiBase: '/api/google-sheets-import',
@@ -54,6 +62,9 @@ export default defineNuxtModule<ModuleOptions>({
       defaultContentDir: options.defaultContentDir,
       collectionTypeBySchema: normalizedCollectionTypeBySchema
     }
+
+    nuxt.options.css.push(resolver.resolve('./runtime/assets/css/main.css'))
+
 
     addServerHandler({
       route: `${options.apiBase}/sheets`,

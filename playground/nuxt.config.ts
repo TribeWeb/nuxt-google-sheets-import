@@ -1,16 +1,18 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: [
+    '../src/module'
+  ],
   devtools: { enabled: true },
+  compatibilityDate: 'latest',
   googleSheetsImport: {
     apiBase: '/api/google-sheets-import',
-    googleApiKeyRuntimeKey: 'googleApiKey',
-    schemaRegistryImport: '~/server/google-sheets/schemas',
+    googleApiKeyRuntimeKey: 'AIzaSyD-ior9_9IMze4P5iWEtfKa1PakkmHcpec',
+    schemaRegistryImport: '~/import/schemas',
     schemaRegistryExport: 'schemas',
     defaultContentDir: 'content',
     collectionTypeBySchema: {
       machinesSmoke: 'data',
-      machines: 'page',
-      materials: 'data'
+      example: 'page'
     }
   }
 })

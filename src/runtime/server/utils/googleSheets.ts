@@ -10,12 +10,3 @@ export function columnCountToRange(columnCount: number): string {
 
   return `A:${columnName}`
 }
-
-export function getByPath(object: Record<string, unknown>, path: string): unknown {
-  return path.split('.').reduce<unknown>((acc, key) => {
-    if (acc && typeof acc === 'object') {
-      return (acc as Record<string, unknown>)[key]
-    }
-    return undefined
-  }, object)
-}

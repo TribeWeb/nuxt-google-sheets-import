@@ -1,43 +1,46 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getValidatedQuery, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/h3@1.15.5/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, getValidatedQuery, getResponseStatus, getRouterParam, setHeader, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatusText } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/h3@1.15.5/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import path, { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/@vue+shared@3.5.27/node_modules/@vue/shared/dist/shared.cjs.js';
-import { z } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/zod@4.3.6/node_modules/zod/index.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/vue-bundle-renderer@2.2.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/ufo@1.6.3/node_modules/ufo/dist/index.mjs';
-import destr, { destr as destr$1 } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/destr@2.0.5/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/ofetch@1.5.1/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/node-mock-http@1.0.4/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/unstorage@1.17.4_db0@0.3.4_better-sqlite3@12.6.2__ioredis@5.9.2/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/unstorage@1.17.4_db0@0.3.4_better-sqlite3@12.6.2__ioredis@5.9.2/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/ohash@2.0.11/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/unctx@2.5.0/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@vue+shared@3.5.29/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/vue-bundle-renderer@2.2.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/ufo@1.6.3/node_modules/ufo/dist/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/destr@2.0.5/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/ofetch@1.5.1/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/node-mock-http@1.0.4/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/unstorage@1.17.4_db0@0.3.4_better-sqlite3@12.6.2__ioredis@5.10.0/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/unstorage@1.17.4_db0@0.3.4_better-sqlite3@12.6.2__ioredis@5.10.0/node_modules/unstorage/drivers/fs.mjs';
+import { digest, hash as hash$1 } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/ohash@2.0.11/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/unctx@2.5.0/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
 import { readFile, mkdir, writeFile, access } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/consola@3.4.2/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/youch-core@0.3.3/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/youch@4.1.0-beta.13/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/consola@3.4.2/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/youch-core@0.3.3/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/youch@4.1.0/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/devalue@5.6.2/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/errx@0.1.0/node_modules/errx/dist/index.js';
-import { isVNode, isRef, toValue } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/vue@3.5.29_typescript@5.9.3/node_modules/vue/index.mjs';
+import { stringify, uneval } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/devalue@5.6.3/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/errx@0.1.0/node_modules/errx/dist/index.js';
+import { isVNode, isRef, toValue } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/vue@3.5.29_typescript@5.9.3/node_modules/vue/index.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/pathe@2.0.3/node_modules/pathe/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/unhead@2.1.6/node_modules/unhead/dist/server.mjs';
-import { renderToString } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/vue@3.5.29_typescript@5.9.3/node_modules/vue/server-renderer/index.mjs';
-import { walkResolver } from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/unhead@2.1.6/node_modules/unhead/dist/utils.mjs';
-import yaml from 'file:///Users/richardstephenson/LocalProjects/metzner/node_modules/.pnpm/js-yaml@4.1.1/node_modules/js-yaml/dist/js-yaml.mjs';
+import { dirname as dirname$1, resolve as resolve$1, basename, isAbsolute } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/pathe@2.0.3/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/unhead@2.1.9/node_modules/unhead/dist/server.mjs';
+import { renderToString } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/vue@3.5.29_typescript@5.9.3/node_modules/vue/server-renderer/index.mjs';
+import { walkResolver } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/unhead@2.1.9/node_modules/unhead/dist/utils.mjs';
+import { z } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/zod@4.3.6/node_modules/zod/index.js';
+import yaml from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/js-yaml@4.1.1/node_modules/js-yaml/dist/js-yaml.mjs';
+import { getIcons } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/@iconify+utils@3.1.0/node_modules/@iconify/utils/lib/index.js';
+import { collections } from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt/nuxt-icon-server-bundle.mjs';
+import localAdapter from 'file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/node_modules/.pnpm/db0@0.3.4_better-sqlite3@12.6.2/node_modules/db0/dist/connectors/better-sqlite3.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -49,11 +52,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -578,7 +581,303 @@ function cloneWithProxy(obj, overrides) {
 const cachedEventHandler = defineCachedEventHandler;
 
 const inlineAppConfig = {
-  "nuxt": {}
+  "nuxt": {},
+  "ui": {
+    "colors": {
+      "primary": "green",
+      "secondary": "blue",
+      "success": "green",
+      "info": "blue",
+      "warning": "yellow",
+      "error": "red",
+      "neutral": "slate"
+    },
+    "icons": {
+      "arrowDown": "i-lucide-arrow-down",
+      "arrowLeft": "i-lucide-arrow-left",
+      "arrowRight": "i-lucide-arrow-right",
+      "arrowUp": "i-lucide-arrow-up",
+      "caution": "i-lucide-circle-alert",
+      "check": "i-lucide-check",
+      "chevronDoubleLeft": "i-lucide-chevrons-left",
+      "chevronDoubleRight": "i-lucide-chevrons-right",
+      "chevronDown": "i-lucide-chevron-down",
+      "chevronLeft": "i-lucide-chevron-left",
+      "chevronRight": "i-lucide-chevron-right",
+      "chevronUp": "i-lucide-chevron-up",
+      "close": "i-lucide-x",
+      "copy": "i-lucide-copy",
+      "copyCheck": "i-lucide-copy-check",
+      "dark": "i-lucide-moon",
+      "drag": "i-lucide-grip-vertical",
+      "ellipsis": "i-lucide-ellipsis",
+      "error": "i-lucide-circle-x",
+      "external": "i-lucide-arrow-up-right",
+      "eye": "i-lucide-eye",
+      "eyeOff": "i-lucide-eye-off",
+      "file": "i-lucide-file",
+      "folder": "i-lucide-folder",
+      "folderOpen": "i-lucide-folder-open",
+      "hash": "i-lucide-hash",
+      "info": "i-lucide-info",
+      "light": "i-lucide-sun",
+      "loading": "i-lucide-loader-circle",
+      "menu": "i-lucide-menu",
+      "minus": "i-lucide-minus",
+      "panelClose": "i-lucide-panel-left-close",
+      "panelOpen": "i-lucide-panel-left-open",
+      "plus": "i-lucide-plus",
+      "reload": "i-lucide-rotate-ccw",
+      "search": "i-lucide-search",
+      "stop": "i-lucide-square",
+      "success": "i-lucide-circle-check",
+      "system": "i-lucide-monitor",
+      "tip": "i-lucide-lightbulb",
+      "upload": "i-lucide-upload",
+      "warning": "i-lucide-triangle-alert"
+    },
+    "tv": {
+      "twMergeConfig": {}
+    }
+  },
+  "icon": {
+    "provider": "server",
+    "class": "",
+    "aliases": {},
+    "iconifyApiEndpoint": "https://api.iconify.design",
+    "localApiEndpoint": "/api/_nuxt_icon",
+    "fallbackToApi": true,
+    "cssSelectorPrefix": "i-",
+    "cssWherePseudo": true,
+    "cssLayer": "base",
+    "mode": "css",
+    "attrs": {
+      "aria-hidden": true
+    },
+    "collections": [
+      "academicons",
+      "akar-icons",
+      "ant-design",
+      "arcticons",
+      "basil",
+      "bi",
+      "bitcoin-icons",
+      "bpmn",
+      "brandico",
+      "bx",
+      "bxl",
+      "bxs",
+      "bytesize",
+      "carbon",
+      "catppuccin",
+      "cbi",
+      "charm",
+      "ci",
+      "cib",
+      "cif",
+      "cil",
+      "circle-flags",
+      "circum",
+      "clarity",
+      "codex",
+      "codicon",
+      "covid",
+      "cryptocurrency",
+      "cryptocurrency-color",
+      "cuida",
+      "dashicons",
+      "devicon",
+      "devicon-plain",
+      "dinkie-icons",
+      "duo-icons",
+      "ei",
+      "el",
+      "emojione",
+      "emojione-monotone",
+      "emojione-v1",
+      "entypo",
+      "entypo-social",
+      "eos-icons",
+      "ep",
+      "et",
+      "eva",
+      "f7",
+      "fa",
+      "fa-brands",
+      "fa-regular",
+      "fa-solid",
+      "fa6-brands",
+      "fa6-regular",
+      "fa6-solid",
+      "fa7-brands",
+      "fa7-regular",
+      "fa7-solid",
+      "fad",
+      "famicons",
+      "fe",
+      "feather",
+      "file-icons",
+      "flag",
+      "flagpack",
+      "flat-color-icons",
+      "flat-ui",
+      "flowbite",
+      "fluent",
+      "fluent-color",
+      "fluent-emoji",
+      "fluent-emoji-flat",
+      "fluent-emoji-high-contrast",
+      "fluent-mdl2",
+      "fontelico",
+      "fontisto",
+      "formkit",
+      "foundation",
+      "fxemoji",
+      "gala",
+      "game-icons",
+      "garden",
+      "geo",
+      "gg",
+      "gis",
+      "gravity-ui",
+      "gridicons",
+      "grommet-icons",
+      "guidance",
+      "healthicons",
+      "heroicons",
+      "heroicons-outline",
+      "heroicons-solid",
+      "hugeicons",
+      "humbleicons",
+      "ic",
+      "icomoon-free",
+      "icon-park",
+      "icon-park-outline",
+      "icon-park-solid",
+      "icon-park-twotone",
+      "iconamoon",
+      "iconoir",
+      "icons8",
+      "il",
+      "ion",
+      "iwwa",
+      "ix",
+      "jam",
+      "la",
+      "lets-icons",
+      "line-md",
+      "lineicons",
+      "logos",
+      "ls",
+      "lsicon",
+      "lucide",
+      "lucide-lab",
+      "mage",
+      "majesticons",
+      "maki",
+      "map",
+      "marketeq",
+      "material-icon-theme",
+      "material-symbols",
+      "material-symbols-light",
+      "mdi",
+      "mdi-light",
+      "medical-icon",
+      "memory",
+      "meteocons",
+      "meteor-icons",
+      "mi",
+      "mingcute",
+      "mono-icons",
+      "mynaui",
+      "nimbus",
+      "nonicons",
+      "noto",
+      "noto-v1",
+      "nrk",
+      "octicon",
+      "oi",
+      "ooui",
+      "openmoji",
+      "oui",
+      "pajamas",
+      "pepicons",
+      "pepicons-pencil",
+      "pepicons-pop",
+      "pepicons-print",
+      "ph",
+      "picon",
+      "pixel",
+      "pixelarticons",
+      "prime",
+      "proicons",
+      "ps",
+      "qlementine-icons",
+      "quill",
+      "radix-icons",
+      "raphael",
+      "ri",
+      "rivet-icons",
+      "roentgen",
+      "si",
+      "si-glyph",
+      "sidekickicons",
+      "simple-icons",
+      "simple-line-icons",
+      "skill-icons",
+      "solar",
+      "stash",
+      "streamline",
+      "streamline-block",
+      "streamline-color",
+      "streamline-cyber",
+      "streamline-cyber-color",
+      "streamline-emojis",
+      "streamline-flex",
+      "streamline-flex-color",
+      "streamline-freehand",
+      "streamline-freehand-color",
+      "streamline-kameleon-color",
+      "streamline-logos",
+      "streamline-pixel",
+      "streamline-plump",
+      "streamline-plump-color",
+      "streamline-sharp",
+      "streamline-sharp-color",
+      "streamline-stickies-color",
+      "streamline-ultimate",
+      "streamline-ultimate-color",
+      "subway",
+      "svg-spinners",
+      "system-uicons",
+      "tabler",
+      "tdesign",
+      "teenyicons",
+      "temaki",
+      "token",
+      "token-branded",
+      "topcoat",
+      "twemoji",
+      "typcn",
+      "uil",
+      "uim",
+      "uis",
+      "uit",
+      "uiw",
+      "unjs",
+      "vaadin",
+      "vs",
+      "vscode-icons",
+      "websymbol",
+      "weui",
+      "whh",
+      "wi",
+      "wpf",
+      "zmdi",
+      "zondicons"
+    ],
+    "fetchTimeout": 1500
+  }
 };
 
 
@@ -636,6 +935,21 @@ const _inlineRuntimeConfig = {
       "/__nuxt_error": {
         "cache": false
       },
+      "/_fonts/**": {
+        "headers": {
+          "cache-control": "public, max-age=31536000, immutable"
+        },
+        "cache": {
+          "maxAge": 31536000
+        }
+      },
+      "/__nuxt_content/**": {
+        "robots": false,
+        "cache": false
+      },
+      "/__nuxt_content/exampleSchema/sql_dump.txt": {
+        "prerender": true
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -645,6 +959,9 @@ const _inlineRuntimeConfig = {
         "headers": {
           "cache-control": "public, max-age=1, immutable"
         }
+      },
+      "/__nuxt_content/exampleSchema/sql_dump.txt/_payload.json": {
+        "prerender": true
       }
     }
   },
@@ -655,23 +972,80 @@ const _inlineRuntimeConfig = {
       "collectionTypeBySchema": {
         "machinesSmoke": "data",
         "machinessmoke": "data",
-        "machines": "page",
-        "materials": "data"
+        "example": "page"
       }
+    },
+    "mdc": {
+      "components": {
+        "prose": true,
+        "map": {},
+        "customElements": []
+      },
+      "headings": {
+        "anchorLinks": {
+          "h1": false,
+          "h2": true,
+          "h3": true,
+          "h4": true,
+          "h5": false,
+          "h6": false
+        }
+      },
+      "highlight": {
+        "noApiRoute": true,
+        "highlighter": "shiki",
+        "theme": {
+          "default": "github-light",
+          "dark": "github-dark"
+        },
+        "shikiEngine": "oniguruma",
+        "langs": [
+          "js",
+          "jsx",
+          "json",
+          "ts",
+          "tsx",
+          "vue",
+          "css",
+          "html",
+          "bash",
+          "md",
+          "mdc",
+          "yaml"
+        ]
+      }
+    },
+    "content": {
+      "wsUrl": ""
     }
   },
   "googleSheetsImport": {
     "apiBase": "/api/google-sheets-import",
-    "googleApiKeyRuntimeKey": "googleApiKey",
+    "googleApiKeyRuntimeKey": "AIzaSyD-ior9_9IMze4P5iWEtfKa1PakkmHcpec",
     "defaultContentDir": "content",
     "collectionTypeBySchema": {
       "machinesSmoke": "data",
       "machinessmoke": "data",
-      "machines": "page",
-      "materials": "data"
+      "example": "page"
     },
-    "schemaRegistryImport": "~/server/google-sheets/schemas",
+    "schemaRegistryImport": "~/import/schemas",
     "schemaRegistryExport": "schemas"
+  },
+  "icon": {
+    "serverKnownCssClasses": []
+  },
+  "content": {
+    "databaseVersion": "v3.5.0",
+    "version": "3.12.0",
+    "database": {
+      "type": "sqlite",
+      "filename": "./contents.sqlite"
+    },
+    "localDatabase": {
+      "type": "sqlite",
+      "filename": "/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.data/content/contents.sqlite"
+    },
+    "integrityCheck": true
   }
 };
 const envOptions = {
@@ -694,7 +1068,12 @@ function useRuntimeConfig(event) {
   event.context.nitro.runtimeConfig = runtimeConfig;
   return runtimeConfig;
 }
-_deepFreeze(klona(appConfig));
+const _sharedAppConfig = _deepFreeze(klona(appConfig));
+function useAppConfig(event) {
+  {
+    return _sharedAppConfig;
+  }
+}
 function _deepFreeze(object) {
   const propNames = Object.getOwnPropertyNames(object);
   for (const name of propNames) {
@@ -2039,7 +2418,7 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
-const script = `
+const script$1 = `
 if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
   Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
     value: {},
@@ -2050,19 +2429,19 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _ZNAJtG1of03fDr2wmTApwfibhYcwnNS0Hd3kZXooKg = (function(nitro) {
+const _u_poOaHHhUlArv9YNDUE0RGEAgtzwvTgb1ybEhXM = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script}<\/script>`);
+    htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const rootDir = "/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground";
+const rootDir = "/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
 const appRootTag = "div";
 
-const appRootAttrs = {"id":"__nuxt"};
+const appRootAttrs = {"id":"__nuxt","class":"isolate"};
 
 const appTeleportTag = "div";
 
@@ -2085,7 +2464,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _PMiOslEb3ZALe1EUTHkEhZboJHfPgSGXUVOETJ_5tHM = (nitroApp) => {
+const _vxc_0txCokzZBYumN2ub5zcDk2leqTdZyWsj5ewThGE = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2158,19 +2537,43 @@ function onConsoleLog(callback) {
 	consola$1.wrapConsole();
 }
 
+const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
+
+const _eFN1hUNjXlIct4RFxIH9bjnEEWLbJPuw4glshKvwV0 = (function(nitro) {
+  nitro.hooks.hook("render:html", (htmlContext) => {
+    htmlContext.head.push(`<script>${script}<\/script>`);
+  });
+});
+
 const plugins = [
-  _ZNAJtG1of03fDr2wmTApwfibhYcwnNS0Hd3kZXooKg,
-_PMiOslEb3ZALe1EUTHkEhZboJHfPgSGXUVOETJ_5tHM
+  _u_poOaHHhUlArv9YNDUE0RGEAgtzwvTgb1ybEhXM,
+_vxc_0txCokzZBYumN2ub5zcDk2leqTdZyWsj5ewThGE,
+_eFN1hUNjXlIct4RFxIH9bjnEEWLbJPuw4glshKvwV0
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"26bbe-u9H4GnLVvfgo8I094Y2uAcF2iGU\"",
+    "mtime": "2026-03-03T00:10:03.793Z",
+    "size": 158654,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"925f9-u6jUhDYt1E3jn0yj09NJfaAkoYM\"",
+    "mtime": "2026-03-03T00:10:03.794Z",
+    "size": 599545,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
   return promises.readFile(resolve$1(serverDir, assets[id].path))
 }
 
-const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1}};
+const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1},"/_fonts/":{"maxAge":31536000}};
 
 function isPublicAssetURL(id = '') {
   if (assets[id]) {
@@ -2188,7 +2591,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _8Y823r = eventHandler((event) => {
+const _x6nNQH = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2274,8 +2677,6 @@ function resolveUnrefHeadInput(input) {
   return walkResolver(input, VueResolver);
 }
 
-const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
-
 // @__NO_SIDE_EFFECTS__
 function createHead(options = {}) {
   const head = createHead$1({
@@ -2328,9 +2729,9 @@ function publicAssetsURL(...path) {
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
 // @ts-expect-error file will be produced after app build
-const getServerEntry = () => import('file:///Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
+const getServerEntry = () => import('file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt//dist/server/server.mjs').then((r) => r.default || r);
 // @ts-expect-error file will be produced after app build
-const getClientManifest = () => import('file:///Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => import('file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 // -- SSR Renderer --
 const getSSRRenderer = lazyCachedFunction(async () => {
 	// Load server bundle
@@ -2621,26 +3022,17 @@ function columnCountToRange(columnCount) {
   }
   return `A:${columnName}`;
 }
-function getByPath$1(object, path) {
-  return path.split(".").reduce((acc, key) => {
-    if (acc && typeof acc === "object") {
-      return acc[key];
-    }
-    return void 0;
-  }, object);
-}
 
-const querySchema$1 = z.object({
+const querySchema$2 = z.object({
   spreadsheetId: z.string().length(44)
 });
-const _5N9R6k = defineEventHandler(async (event) => {
+const _pH7sxS = defineEventHandler(async (event) => {
   var _a;
-  const config = useRuntimeConfig(event);
-  const moduleConfig = config.googleSheetsImport;
-  const { spreadsheetId } = await getValidatedQuery(event, (query) => querySchema$1.parse(query));
-  const apiKey = getByPath$1(config, moduleConfig.googleApiKeyRuntimeKey);
+  const { googleSheetsImport } = useRuntimeConfig();
+  const apiKey = googleSheetsImport == null ? void 0 : googleSheetsImport.googleApiKeyRuntimeKey;
+  const { spreadsheetId } = await getValidatedQuery(event, (query) => querySchema$2.parse(query));
   if (!apiKey || typeof apiKey !== "string") {
-    throw createError({ statusCode: 500, statusMessage: `Missing Google API key at runtimeConfig.${moduleConfig.googleApiKeyRuntimeKey}` });
+    throw createError({ statusCode: 500, statusMessage: `Missing Google API key in nuxt.config googleSheetsImport: { googleApiKeyRuntimeKey: '${apiKey}' }` });
   }
   const response = await $fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`);
   return {
@@ -2663,14 +3055,38 @@ const machinesSmoke = z.object({
   cutRate: z.number(),
   featurePrimary: z.string().optional()
 });
+const example = z.object({
+  slug: z.string().min(1).max(100),
+  pageOrder: z.coerce.number().int(),
+  number: z.coerce.number(),
+  string: z.string().min(1).max(100),
+  enumString: z.enum(["foo", "bar", "baz"]),
+  literalString: z.literal("foo"),
+  unionString: z.union([z.literal("foo"), z.literal("bar")]),
+  unionStringArray: z.union([z.literal("foo"), z.literal("bar")]).array(),
+  exclusiveUnionString: z.xor([z.literal("foo"), z.literal("bar")]),
+  stringArray: z.string().array(),
+  boolean: z.coerce.boolean(),
+  object: z.object({
+    key1: z.string().min(1),
+    key2: z.string().min(1)
+  }),
+  objectArray: z.array(
+    z.object({
+      keyA: z.string().min(1),
+      keyB: z.string().min(1)
+    })
+  )
+});
 const schemas = {
-  machinesSmoke
+  machinesSmoke,
+  example
 };
 
-function isZodType(value) {
+function isZodType$1(value) {
   return typeof value === "object" && value !== null && "_def" in value;
 }
-function getDefValue(schema, key) {
+function getDefValue$1(schema, key) {
   if (!schema || typeof schema !== "object") {
     return void 0;
   }
@@ -2680,21 +3096,21 @@ function getDefValue(schema, key) {
   }
   return def[key];
 }
-function nextInnerSchema(schema) {
+function nextInnerSchema$1(schema) {
   var _a, _b, _c;
-  const candidate = (_c = (_b = (_a = getDefValue(schema, "innerType")) != null ? _a : getDefValue(schema, "schema")) != null ? _b : getDefValue(schema, "type")) != null ? _c : getDefValue(schema, "in");
-  return isZodType(candidate) ? candidate : null;
+  const candidate = (_c = (_b = (_a = getDefValue$1(schema, "innerType")) != null ? _a : getDefValue$1(schema, "schema")) != null ? _b : getDefValue$1(schema, "type")) != null ? _c : getDefValue$1(schema, "in");
+  return isZodType$1(candidate) ? candidate : null;
 }
-function unwrapSchema(schema) {
+function unwrapSchema$1(schema) {
   let current = schema;
   for (let index = 0; index < 20; index++) {
-    const next = nextInnerSchema(current);
+    const next = nextInnerSchema$1(current);
     if (!next || next === current) {
       break;
     }
     current = next;
   }
-  return isZodType(current) ? current : null;
+  return isZodType$1(current) ? current : null;
 }
 function hasWrapper(schema, wrapper) {
   let current = schema;
@@ -2708,7 +3124,7 @@ function hasWrapper(schema, wrapper) {
     if (wrapper === "nullable" && current instanceof z.ZodNullable) {
       return true;
     }
-    const next = nextInnerSchema(current);
+    const next = nextInnerSchema$1(current);
     if (!next || next === current) {
       return false;
     }
@@ -2758,8 +3174,8 @@ function setDeep(target, path, value) {
     cursor = nextCursor;
   }
 }
-function getObjectShape(schema) {
-  const unwrapped = unwrapSchema(schema);
+function getObjectShape$1(schema) {
+  const unwrapped = unwrapSchema$1(schema);
   if (!unwrapped) {
     return null;
   }
@@ -2783,20 +3199,20 @@ function getSchemaAtPath(rootSchema, path) {
     if (!current) {
       return null;
     }
-    const unwrapped = unwrapSchema(current);
+    const unwrapped = unwrapSchema$1(current);
     if (!unwrapped) {
       return null;
     }
     if (typeof segment === "number") {
-      const fallbackElement = getDefValue(unwrapped, "element");
-      const arrayElement = unwrapped instanceof z.ZodArray ? unwrapped.element : isZodType(fallbackElement) ? fallbackElement : null;
+      const fallbackElement = getDefValue$1(unwrapped, "element");
+      const arrayElement = unwrapped instanceof z.ZodArray ? unwrapped.element : isZodType$1(fallbackElement) ? fallbackElement : null;
       if (arrayElement) {
         current = arrayElement;
         continue;
       }
       return null;
     }
-    const shape = getObjectShape(unwrapped);
+    const shape = getObjectShape$1(unwrapped);
     if (!shape || !(segment in shape)) {
       return null;
     }
@@ -2819,7 +3235,7 @@ function toTypedCellValue(rawValue, schema) {
       return null;
     }
   }
-  const unwrapped = schema ? unwrapSchema(schema) : null;
+  const unwrapped = schema ? unwrapSchema$1(schema) : null;
   if (unwrapped instanceof z.ZodArray) {
     if (value === "") {
       return isOptional ? void 0 : isNullable ? null : [];
@@ -2888,20 +3304,19 @@ function transformAndValidateRows(values, schema) {
   return { records, errors };
 }
 
-const bodySchema$2 = z.object({
+const bodySchema$1 = z.object({
   spreadsheetId: z.string().length(44),
   sheetTitle: z.string().min(1),
   range: z.string().min(1),
   schema: z.string().min(1)
 });
-const _2g5Nlv = defineEventHandler(async (event) => {
+const _4TsZwJ = defineEventHandler(async (event) => {
   var _a, _b;
-  const body = bodySchema$2.parse(await readBody(event));
-  const config = useRuntimeConfig(event);
-  const moduleConfig = config.googleSheetsImport;
-  const apiKey = getByPath$1(config, moduleConfig.googleApiKeyRuntimeKey);
+  const body = bodySchema$1.parse(await readBody(event));
+  const { googleSheetsImport } = useRuntimeConfig();
+  const apiKey = googleSheetsImport == null ? void 0 : googleSheetsImport.googleApiKeyRuntimeKey;
   if (!apiKey || typeof apiKey !== "string") {
-    throw createError({ statusCode: 500, statusMessage: `Missing Google API key at runtimeConfig.${moduleConfig.googleApiKeyRuntimeKey}` });
+    throw createError({ statusCode: 500, statusMessage: `Missing Google API key in nuxt.config googleSheetsImport: { googleApiKeyRuntimeKey: '${apiKey}' }` });
   }
   const encodedRange = encodeURIComponent(`${body.sheetTitle}!${body.range}`);
   const googleResponse = await $fetch(`https://sheets.googleapis.com/v4/spreadsheets/${body.spreadsheetId}/values/${encodedRange}?key=${apiKey}`);
@@ -2976,12 +3391,12 @@ async function resolveCollectionTypeBySchema(schemaKey, collectionTypeBySchemaFr
   return collectionType != null ? collectionType : "unknown";
 }
 
-const querySchema = z.object({
+const querySchema$1 = z.object({
   schema: z.string().optional()
 });
-const _CrfZJh = defineEventHandler(async (event) => {
+const _hHkfLB = defineEventHandler(async (event) => {
   var _a;
-  const { schema } = await getValidatedQuery(event, (query) => querySchema.parse(query));
+  const { schema } = await getValidatedQuery(event, (query) => querySchema$1.parse(query));
   const config = useRuntimeConfig(event);
   const moduleConfig = config.googleSheetsImport;
   const fromConfig = (_a = moduleConfig.collectionTypeBySchema) != null ? _a : {};
@@ -2991,6 +3406,127 @@ const _CrfZJh = defineEventHandler(async (event) => {
     schema: schema != null ? schema : null,
     collectionType,
     baseContentDir
+  };
+});
+
+const PAGE_SCHEMA_OVERRIDE_COLUMNS = [
+  "path",
+  "title",
+  "description",
+  "seo.title",
+  "seo.description",
+  "seo.meta",
+  "seo.link",
+  "body.type",
+  "body.children",
+  "body.toc",
+  "navigation",
+  "navigation.title",
+  "navigation.description",
+  "navigation.icon"
+];
+function isZodType(value) {
+  return typeof value === "object" && value !== null && "_def" in value;
+}
+function getDefValue(schema, key) {
+  if (!schema || typeof schema !== "object") {
+    return void 0;
+  }
+  const def = schema._def;
+  if (!def || typeof def !== "object") {
+    return void 0;
+  }
+  return def[key];
+}
+function nextInnerSchema(schema) {
+  var _a, _b, _c;
+  const candidate = (_c = (_b = (_a = getDefValue(schema, "innerType")) != null ? _a : getDefValue(schema, "schema")) != null ? _b : getDefValue(schema, "type")) != null ? _c : getDefValue(schema, "in");
+  return isZodType(candidate) ? candidate : null;
+}
+function unwrapSchema(schema) {
+  let current = schema;
+  for (let index = 0; index < 20; index++) {
+    const next = nextInnerSchema(current);
+    if (!next || next === current) {
+      break;
+    }
+    current = next;
+  }
+  return isZodType(current) ? current : null;
+}
+function getObjectShape(schema) {
+  const unwrapped = unwrapSchema(schema);
+  if (!unwrapped || !(unwrapped instanceof z.ZodObject)) {
+    return null;
+  }
+  const maybeShape = unwrapped.shape;
+  if (typeof maybeShape === "function") {
+    return maybeShape();
+  }
+  if (maybeShape && typeof maybeShape === "object") {
+    return maybeShape;
+  }
+  return null;
+}
+function collectSchemaColumns(schema, prefix = "") {
+  const unwrapped = unwrapSchema(schema);
+  if (!unwrapped) {
+    return prefix ? [prefix] : [];
+  }
+  if (unwrapped instanceof z.ZodArray) {
+    const arrayPrefix = `${prefix}[0]`;
+    const elementCandidate = getDefValue(unwrapped, "element");
+    const arrayElement = isZodType(elementCandidate) ? elementCandidate : null;
+    const nested = arrayElement ? collectSchemaColumns(arrayElement, arrayPrefix) : [];
+    return nested.length ? nested : [arrayPrefix];
+  }
+  const objectShape = getObjectShape(unwrapped);
+  if (objectShape) {
+    return Object.entries(objectShape).flatMap(([key, childSchema]) => {
+      const childPrefix = prefix ? `${prefix}.${key}` : key;
+      return collectSchemaColumns(childSchema, childPrefix);
+    });
+  }
+  return prefix ? [prefix] : [];
+}
+function getSchemaColumns(schema) {
+  const columns = collectSchemaColumns(schema);
+  return Array.from(new Set(columns)).sort((left, right) => left.localeCompare(right));
+}
+
+const querySchema = z.object({
+  schema: z.string().optional()
+});
+const _mqrAGr = defineEventHandler(async (event) => {
+  var _a;
+  const { schema } = await getValidatedQuery(event, (query) => querySchema.parse(query));
+  const config = useRuntimeConfig(event);
+  const moduleConfig = config.googleSheetsImport;
+  const schemaMap = schemas;
+  const availableSchemas = Object.keys(schemaMap).sort((left, right) => left.localeCompare(right));
+  if (!schema) {
+    return {
+      schema: null,
+      schemas: availableSchemas,
+      columns: [],
+      collectionType: "unknown",
+      pageOverrideColumns: []
+    };
+  }
+  const collectionType = await resolveCollectionTypeBySchema(schema, (_a = moduleConfig.collectionTypeBySchema) != null ? _a : {});
+  const selectedSchema = schemaMap[schema];
+  if (!selectedSchema) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: `Unknown schema: ${schema}`
+    });
+  }
+  return {
+    schema,
+    schemas: availableSchemas,
+    columns: getSchemaColumns(selectedSchema),
+    collectionType,
+    pageOverrideColumns: collectionType === "page" ? PAGE_SCHEMA_OVERRIDE_COLUMNS : []
   };
 });
 
@@ -3085,7 +3621,7 @@ async function writeRecordAsFrontmatter(input) {
   };
 }
 
-const bodySchema$1 = z.object({
+const bodySchema = z.object({
   records: z.array(z.record(z.string(), z.unknown())),
   schema: z.string().optional(),
   folder: z.string().min(1),
@@ -3111,9 +3647,9 @@ function resolveContentDirByCollectionType(collectionType, schemaKey, fallback) 
   );
   return fallback;
 }
-const _a14vvZ = defineEventHandler(async (event) => {
+const _YSsgK1 = defineEventHandler(async (event) => {
   var _a, _b;
-  const body = bodySchema$1.parse(await readBody(event));
+  const body = bodySchema.parse(await readBody(event));
   const config = useRuntimeConfig(event);
   const moduleConfig = config.googleSheetsImport;
   const mappedInConfig = (_a = moduleConfig.collectionTypeBySchema) != null ? _a : {};
@@ -3146,19 +3682,538 @@ const _a14vvZ = defineEventHandler(async (event) => {
   };
 });
 
-const _lazy_nqFFJ1 = () => Promise.resolve().then(function () { return valuesSmoke_post$1; });
-const _lazy_dzI8b1 = () => Promise.resolve().then(function () { return renderer$1; });
+function defineRenderHandler(render) {
+  const runtimeConfig = useRuntimeConfig();
+  return eventHandler(async (event) => {
+    const nitroApp = useNitroApp();
+    const ctx = { event, render, response: void 0 };
+    await nitroApp.hooks.callHook("render:before", ctx);
+    if (!ctx.response) {
+      if (event.path === `${runtimeConfig.app.baseURL}favicon.ico`) {
+        setResponseHeader(event, "Content-Type", "image/x-icon");
+        return send(
+          event,
+          "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        );
+      }
+      ctx.response = await ctx.render(event);
+      if (!ctx.response) {
+        const _currentStatus = getResponseStatus(event);
+        setResponseStatus(event, _currentStatus === 200 ? 500 : _currentStatus);
+        return send(
+          event,
+          "No response returned from render handler: " + event.path
+        );
+      }
+    }
+    await nitroApp.hooks.callHook("render:response", ctx.response, ctx);
+    if (ctx.response.headers) {
+      setResponseHeaders(event, ctx.response.headers);
+    }
+    if (ctx.response.statusCode || ctx.response.statusMessage) {
+      setResponseStatus(
+        event,
+        ctx.response.statusCode,
+        ctx.response.statusMessage
+      );
+    }
+    return ctx.response.body;
+  });
+}
+
+const scheduledTasks = false;
+
+const tasks = {
+  
+};
+
+const __runningTasks__ = {};
+async function runTask(name, {
+  payload = {},
+  context = {}
+} = {}) {
+  if (__runningTasks__[name]) {
+    return __runningTasks__[name];
+  }
+  if (!(name in tasks)) {
+    throw createError({
+      message: `Task \`${name}\` is not available!`,
+      statusCode: 404
+    });
+  }
+  if (!tasks[name].resolve) {
+    throw createError({
+      message: `Task \`${name}\` is not implemented!`,
+      statusCode: 501
+    });
+  }
+  const handler = await tasks[name].resolve();
+  const taskEvent = { name, payload, context };
+  __runningTasks__[name] = handler.run(taskEvent);
+  try {
+    const res = await __runningTasks__[name];
+    return res;
+  } finally {
+    delete __runningTasks__[name];
+  }
+}
+
+const checksums = {
+  "exampleSchema": "v3.5.0--wE1Dw_HM0CHChQ3OC0yAhu7Vy9I8qgj_Q0BD5Rngbqc"
+};
+const checksumsStructure = {
+  "exampleSchema": "aFM3is-pK0WChJBHWyrxH9tqqxDrlcn2D5MhCsjau5s"
+};
+const tables = {
+  "exampleSchema": "_content_exampleSchema",
+  "info": "_content_info"
+};
+const contentManifest = {
+  "exampleSchema": {
+    "type": "page",
+    "fields": {
+      "id": "string",
+      "title": "string",
+      "body": "json",
+      "boolean": "boolean",
+      "description": "string",
+      "enumString": "string",
+      "exclusiveUnionString": "json",
+      "extension": "string",
+      "literalString": "string",
+      "meta": "json",
+      "navigation": "json",
+      "number": "number",
+      "object": "json",
+      "objectArray": "json",
+      "path": "string",
+      "seo": "json",
+      "stem": "string",
+      "string": "string",
+      "stringArray": "json",
+      "unionString": "json",
+      "unionStringArray": "json"
+    }
+  },
+  "info": {
+    "type": "data",
+    "fields": {}
+  }
+};
+
+async function fetchContent(event, collection, path, options) {
+  const headers = event ? getRequestHeaders(event) : {};
+  headers["accept-encoding"] = void 0;
+  const url = `/__nuxt_content/${collection}/${path}`;
+  const fetchOptions = {
+    ...options,
+    headers: {
+      ...headers,
+      ...options.headers
+    },
+    query: { v: checksums[String(collection)], t: Date.now()  }
+  };
+  return event ? await event.$fetch(url, fetchOptions) : await $fetch(url, fetchOptions);
+}
+async function fetchDatabase(event, collection) {
+  return fetchContent(event, collection, "sql_dump.txt", {
+    responseType: "text",
+    headers: {
+      "content-type": "text/plain"
+    }
+  });
+}
+
+const warnOnceSet = /* @__PURE__ */ new Set();
+const DEFAULT_ENDPOINT = "https://api.iconify.design";
+const _yKfuTI = defineCachedEventHandler(async (event) => {
+  const url = getRequestURL(event);
+  if (!url)
+    return createError({ status: 400, message: "Invalid icon request" });
+  const options = useAppConfig().icon;
+  const collectionName = event.context.params?.collection?.replace(/\.json$/, "");
+  const collection = collectionName ? await collections[collectionName]?.() : null;
+  const apiEndPoint = options.iconifyApiEndpoint || DEFAULT_ENDPOINT;
+  const icons = url.searchParams.get("icons")?.split(",");
+  if (collection) {
+    if (icons?.length) {
+      const data = getIcons(
+        collection,
+        icons
+      );
+      consola$1.debug(`[Icon] serving ${(icons || []).map((i) => "`" + collectionName + ":" + i + "`").join(",")} from bundled collection`);
+      return data;
+    }
+  } else {
+    if (collectionName && !warnOnceSet.has(collectionName) && apiEndPoint === DEFAULT_ENDPOINT) {
+      consola$1.warn([
+        `[Icon] Collection \`${collectionName}\` is not found locally`,
+        `We suggest to install it via \`npm i -D @iconify-json/${collectionName}\` to provide the best end-user experience.`
+      ].join("\n"));
+      warnOnceSet.add(collectionName);
+    }
+  }
+  if (options.fallbackToApi === true || options.fallbackToApi === "server-only") {
+    const apiUrl = new URL("./" + basename(url.pathname) + url.search, apiEndPoint);
+    consola$1.debug(`[Icon] fetching ${(icons || []).map((i) => "`" + collectionName + ":" + i + "`").join(",")} from iconify api`);
+    if (apiUrl.host !== new URL(apiEndPoint).host) {
+      return createError({ status: 400, message: "Invalid icon request" });
+    }
+    try {
+      const data = await $fetch(apiUrl.href);
+      return data;
+    } catch (e) {
+      consola$1.error(e);
+      if (e.status === 404)
+        return createError({ status: 404 });
+      else
+        return createError({ status: 500, message: "Failed to fetch fallback icon" });
+    }
+  }
+  return createError({ status: 404 });
+}, {
+  group: "nuxt",
+  name: "icon",
+  getKey(event) {
+    const collection = event.context.params?.collection?.replace(/\.json$/, "") || "unknown";
+    const icons = String(getQuery$1(event).icons || "");
+    return `${collection}_${icons.split(",")[0]}_${icons.length}_${hash$1(icons)}`;
+  },
+  swr: true,
+  maxAge: 60 * 60 * 24 * 7
+  // 1 week
+});
+
+const _OFLQJj = eventHandler(async (event) => {
+  const collection = getRouterParam(event, "collection") || event.path?.split("/")?.[2] || "";
+  setHeader(event, "Content-Type", "text/plain");
+  const data = await useStorage().getItem(`build:content:database.compressed.mjs`) || "";
+  if (data) {
+    const lineStart = `export const ${collection} = "`;
+    const content = String(data).split("\n").find((line) => line.startsWith(lineStart));
+    if (content) {
+      return content.substring(lineStart.length, content.length - 1);
+    }
+  }
+  return await import('file:///Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground/.nuxt/content/database.compressed.mjs').then((m) => m[collection]);
+});
+
+async function decompressSQLDump(base64Str, compressionType = "gzip") {
+  let binaryData;
+  if (typeof Buffer !== "undefined") {
+    const buffer = Buffer.from(base64Str, "base64");
+    binaryData = Uint8Array.from(buffer);
+  } else if (typeof atob !== "undefined") {
+    binaryData = Uint8Array.from(atob(base64Str), (c) => c.charCodeAt(0));
+  } else {
+    throw new TypeError("No base64 decoding method available");
+  }
+  const response = new Response(new Blob([binaryData]));
+  const decompressedStream = response.body?.pipeThrough(new DecompressionStream(compressionType));
+  const text = await new Response(decompressedStream).text();
+  return JSON.parse(text);
+}
+
+function refineContentFields(sql, doc) {
+  const fields = findCollectionFields(sql);
+  const item = { ...doc };
+  for (const key in item) {
+    if (fields[key] === "json" && item[key] && item[key] !== "undefined") {
+      item[key] = JSON.parse(item[key]);
+    }
+    if (fields[key] === "boolean" && item[key] !== "undefined") {
+      item[key] = Boolean(item[key]);
+    }
+  }
+  for (const key in item) {
+    if (item[key] === "NULL") {
+      item[key] = void 0;
+    }
+  }
+  return item;
+}
+function findCollectionFields(sql) {
+  const table = sql.match(/FROM\s+(\w+)/);
+  if (!table) {
+    return {};
+  }
+  const info = contentManifest[getCollectionName(table[1])];
+  return info?.fields || {};
+}
+function getCollectionName(table) {
+  return table.replace(/^_content_/, "");
+}
+
+let db;
+function loadDatabaseAdapter(config) {
+  const { database, localDatabase } = config;
+  if (!db) {
+    {
+      db = localAdapter(refineDatabaseConfig(localDatabase));
+    }
+  }
+  return {
+    all: async (sql, params = []) => {
+      return db.prepare(sql).all(...params).then((result) => (result || []).map((item) => refineContentFields(sql, item)));
+    },
+    first: async (sql, params = []) => {
+      return db.prepare(sql).get(...params).then((item) => item ? refineContentFields(sql, item) : item);
+    },
+    exec: async (sql, params = []) => {
+      return db.prepare(sql).run(...params);
+    }
+  };
+}
+const checkDatabaseIntegrity = /* @__PURE__ */ new Map();
+const integrityCheckPromise = /* @__PURE__ */ new Map();
+async function checkAndImportDatabaseIntegrity(event, collection, config) {
+  if (checkDatabaseIntegrity.get(collection) !== false) {
+    checkDatabaseIntegrity.set(collection, false);
+    if (!integrityCheckPromise.has(collection)) {
+      const _integrityCheck = _checkAndImportDatabaseIntegrity(event, collection, checksums[collection], checksumsStructure[collection], config).then((isValid) => {
+        checkDatabaseIntegrity.set(collection, !isValid);
+      }).catch((error) => {
+        console.error("Database integrity check failed", error);
+        checkDatabaseIntegrity.set(collection, true);
+        integrityCheckPromise.delete(collection);
+      });
+      integrityCheckPromise.set(collection, _integrityCheck);
+    }
+  }
+  if (integrityCheckPromise.has(collection)) {
+    await integrityCheckPromise.get(collection);
+  }
+}
+async function _checkAndImportDatabaseIntegrity(event, collection, integrityVersion, structureIntegrityVersion, config) {
+  const db2 = loadDatabaseAdapter(config);
+  const before = await db2.first(`SELECT * FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => null);
+  if (before?.version && !String(before.version)?.startsWith(`${config.databaseVersion}--`)) {
+    await db2.exec(`DROP TABLE IF EXISTS ${tables.info}`);
+    before.version = "";
+  }
+  const unchangedStructure = before?.structureVersion === structureIntegrityVersion;
+  if (before?.version) {
+    if (before.version === integrityVersion) {
+      if (before.ready) {
+        return true;
+      }
+      await waitUntilDatabaseIsReady(db2, collection);
+      return true;
+    }
+    await db2.exec(`DELETE FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]);
+    if (!unchangedStructure) {
+      await db2.exec(`DROP TABLE IF EXISTS ${tables[collection]}`);
+    }
+  }
+  const dump = await loadDatabaseDump(event, collection).then(decompressSQLDump);
+  const dumpLinesHash = dump.map((row) => row.split(" -- ").pop());
+  let hashesInDb = /* @__PURE__ */ new Set();
+  if (unchangedStructure) {
+    const hashListFromTheDump = new Set(dumpLinesHash);
+    const hashesInDbRecords = await db2.all(`SELECT __hash__ FROM ${tables[collection]}`).catch(() => []);
+    hashesInDb = new Set(hashesInDbRecords.map((r) => r.__hash__));
+    const hashesToDelete = hashesInDb.difference(hashListFromTheDump);
+    if (hashesToDelete.size) {
+      await db2.exec(`DELETE FROM ${tables[collection]} WHERE __hash__ IN (${Array(hashesToDelete.size).fill("?").join(",")})`, Array.from(hashesToDelete));
+    }
+  }
+  await dump.reduce(async (prev, sql, index) => {
+    await prev;
+    const hash = dumpLinesHash[index];
+    const statement = sql.substring(0, sql.length - hash.length - 4);
+    if (unchangedStructure) {
+      if (hash === "structure") {
+        return Promise.resolve();
+      }
+      if (hashesInDb.has(hash)) {
+        return Promise.resolve();
+      }
+    }
+    await db2.exec(statement).catch((err) => {
+      const message = err.message || "Unknown error";
+      console.error(`Failed to execute SQL ${sql}: ${message}`);
+    });
+  }, Promise.resolve());
+  const after = await db2.first(`SELECT version FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => ({ version: "" }));
+  return after?.version === integrityVersion;
+}
+const REQUEST_TIMEOUT = 90;
+async function waitUntilDatabaseIsReady(db2, collection) {
+  let iterationCount = 0;
+  let interval;
+  await new Promise((resolve, reject) => {
+    interval = setInterval(async () => {
+      const row = await db2.first(`SELECT ready FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => ({ ready: true }));
+      if (row?.ready) {
+        clearInterval(interval);
+        resolve(0);
+      }
+      if (iterationCount++ > REQUEST_TIMEOUT) {
+        clearInterval(interval);
+        reject(new Error("Waiting for another database initialization timed out"));
+      }
+    }, 1e3);
+  }).catch((e) => {
+    throw e;
+  }).finally(() => {
+    if (interval) {
+      clearInterval(interval);
+    }
+  });
+}
+async function loadDatabaseDump(event, collection) {
+  return await fetchDatabase(event, collection).catch((e) => {
+    console.error("Failed to fetch compressed dump", e);
+    return "";
+  });
+}
+function refineDatabaseConfig(config) {
+  if (config.type === "d1") {
+    return { ...config, bindingName: config.bindingName || config.binding };
+  }
+  if (config.type === "sqlite") {
+    const _config = { ...config };
+    if (config.filename === ":memory:") {
+      return { name: ":memory:" };
+    }
+    if ("filename" in config) {
+      const filename = isAbsolute(config?.filename || "") || config?.filename === ":memory:" ? config?.filename : new URL(config.filename, globalThis._importMeta_.url).pathname;
+      _config.path = process.platform === "win32" && filename.startsWith("/") ? filename.slice(1) : filename;
+    }
+    return _config;
+  }
+  if (config.type === "pglite") {
+    return {
+      dataDir: config.dataDir,
+      // Pass through any other PGlite-specific options
+      ...config
+    };
+  }
+  return config;
+}
+
+const SQL_COMMANDS = /SELECT|INSERT|UPDATE|DELETE|DROP|ALTER|\$/i;
+const SQL_COUNT_REGEX = /COUNT\((DISTINCT )?([a-z_]\w+|\*)\)/i;
+const SQL_SELECT_REGEX = /^SELECT (.*) FROM (\w+)( WHERE .*)? ORDER BY (["\w,\s]+) (ASC|DESC)( LIMIT \d+)?( OFFSET \d+)?$/;
+function assertSafeQuery(sql, collection) {
+  if (!sql) {
+    throw new Error("Invalid query: Query cannot be empty");
+  }
+  const cleanedupQuery = cleanupQuery(sql);
+  if (cleanedupQuery !== sql) {
+    throw new Error("Invalid query: SQL comments are not allowed");
+  }
+  const match = sql.match(SQL_SELECT_REGEX);
+  if (!match) {
+    throw new Error("Invalid query: Query must be a valid SELECT statement with proper syntax");
+  }
+  const [_, select, from, where, orderBy, order, limit, offset] = match;
+  const columns = select?.trim().split(", ") || [];
+  if (columns.length === 1) {
+    if (columns[0] !== "*" && !columns[0]?.match(SQL_COUNT_REGEX) && !columns[0]?.match(/^"[a-z_]\w+"$/i)) {
+      throw new Error(`Invalid query: Column '${columns[0]}' has invalid format. Expected *, COUNT(), or a quoted column name`);
+    }
+  } else if (!columns.every((column) => column.match(/^"[a-z_]\w+"$/i))) {
+    throw new Error("Invalid query: Multiple columns must be properly quoted and alphanumeric");
+  }
+  if (from !== `_content_${collection}`) {
+    const collection2 = String(from || "").replace(/^_content_/, "");
+    throw new Error(`Invalid query: Collection '${collection2}' does not exist`);
+  }
+  if (where) {
+    if (!where.startsWith(" WHERE (") || !where.endsWith(")")) {
+      throw new Error("Invalid query: WHERE clause must be properly enclosed in parentheses");
+    }
+    const noString = cleanupQuery(where, { removeString: true });
+    if (noString.match(SQL_COMMANDS)) {
+      throw new Error("Invalid query: WHERE clause contains unsafe SQL commands");
+    }
+  }
+  const _order = (orderBy + " " + order).split(", ");
+  if (!_order.every((column) => column.match(/^("[a-zA-Z_]+"|[a-zA-Z_]+) (ASC|DESC)$/))) {
+    throw new Error("Invalid query: ORDER BY clause must contain valid column names followed by ASC or DESC");
+  }
+  if (limit !== void 0 && !limit.match(/^ LIMIT \d+$/)) {
+    throw new Error("Invalid query: LIMIT clause must be a positive number");
+  }
+  if (offset !== void 0 && !offset.match(/^ OFFSET \d+$/)) {
+    throw new Error("Invalid query: OFFSET clause must be a positive number");
+  }
+  return true;
+}
+function cleanupQuery(query, options = { removeString: false }) {
+  let inString = false;
+  let stringFence = "";
+  let result = "";
+  for (let i = 0; i < query.length; i++) {
+    const char = query[i];
+    const prevChar = query[i - 1];
+    const nextChar = query[i + 1];
+    if (char === "'" || char === '"') {
+      if (!options?.removeString) {
+        result += char;
+        continue;
+      }
+      if (inString) {
+        if (char !== stringFence || nextChar === stringFence || prevChar === stringFence) {
+          continue;
+        }
+        inString = false;
+        stringFence = "";
+        continue;
+      } else {
+        inString = true;
+        stringFence = char;
+        continue;
+      }
+    }
+    if (!inString) {
+      if (char === "-" && nextChar === "-") {
+        return result;
+      }
+      if (char === "/" && nextChar === "*") {
+        i += 2;
+        while (i < query.length && !(query[i] === "*" && query[i + 1] === "/")) {
+          i += 1;
+        }
+        i += 2;
+        continue;
+      }
+      result += char;
+    }
+  }
+  return result;
+}
+
+const _kVgjqw = eventHandler(async (event) => {
+  const { sql } = await readBody(event);
+  const collection = getRouterParam(event, "collection") || event.path?.split("/")?.[2] || "";
+  assertSafeQuery(sql, collection);
+  const conf = useRuntimeConfig().content;
+  if (conf.integrityCheck) {
+    await checkAndImportDatabaseIntegrity(event, collection, conf);
+  }
+  return loadDatabaseAdapter(conf).all(sql);
+});
+
+const _lazy_NFn8Kt = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '', handler: _8Y823r, lazy: false, middleware: true, method: undefined },
-  { route: '/api/google-sheets-import/values-smoke', handler: _lazy_nqFFJ1, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_dzI8b1, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _x6nNQH, lazy: false, middleware: true, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_NFn8Kt, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/api/google-sheets-import/sheets', handler: _5N9R6k, lazy: false, middleware: false, method: "get" },
-  { route: '/api/google-sheets-import/values', handler: _2g5Nlv, lazy: false, middleware: false, method: "post" },
-  { route: '/api/google-sheets-import/collection-type', handler: _CrfZJh, lazy: false, middleware: false, method: "get" },
-  { route: '/api/google-sheets-import/write', handler: _a14vvZ, lazy: false, middleware: false, method: "post" },
-  { route: '/**', handler: _lazy_dzI8b1, lazy: true, middleware: false, method: undefined }
+  { route: '/api/google-sheets-import/sheets', handler: _pH7sxS, lazy: false, middleware: false, method: "get" },
+  { route: '/api/google-sheets-import/values', handler: _4TsZwJ, lazy: false, middleware: false, method: "post" },
+  { route: '/api/google-sheets-import/collection-type', handler: _hHkfLB, lazy: false, middleware: false, method: "get" },
+  { route: '/api/google-sheets-import/schema-columns', handler: _mqrAGr, lazy: false, middleware: false, method: "get" },
+  { route: '/api/google-sheets-import/write', handler: _YSsgK1, lazy: false, middleware: false, method: "post" },
+  { route: '/api/_nuxt_icon/:collection', handler: _yKfuTI, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/exampleSchema/sql_dump.txt', handler: _OFLQJj, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/info/sql_dump.txt', handler: _OFLQJj, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/exampleSchema/query', handler: _kVgjqw, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/info/query', handler: _kVgjqw, lazy: false, middleware: false, method: undefined },
+  { route: '/_fonts/**', handler: _lazy_NFn8Kt, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_NFn8Kt, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -3302,82 +4357,6 @@ function useNitroApp() {
 }
 runNitroPlugins(nitroApp$1);
 
-function defineRenderHandler(render) {
-  const runtimeConfig = useRuntimeConfig();
-  return eventHandler(async (event) => {
-    const nitroApp = useNitroApp();
-    const ctx = { event, render, response: void 0 };
-    await nitroApp.hooks.callHook("render:before", ctx);
-    if (!ctx.response) {
-      if (event.path === `${runtimeConfig.app.baseURL}favicon.ico`) {
-        setResponseHeader(event, "Content-Type", "image/x-icon");
-        return send(
-          event,
-          "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        );
-      }
-      ctx.response = await ctx.render(event);
-      if (!ctx.response) {
-        const _currentStatus = getResponseStatus(event);
-        setResponseStatus(event, _currentStatus === 200 ? 500 : _currentStatus);
-        return send(
-          event,
-          "No response returned from render handler: " + event.path
-        );
-      }
-    }
-    await nitroApp.hooks.callHook("render:response", ctx.response, ctx);
-    if (ctx.response.headers) {
-      setResponseHeaders(event, ctx.response.headers);
-    }
-    if (ctx.response.statusCode || ctx.response.statusMessage) {
-      setResponseStatus(
-        event,
-        ctx.response.statusCode,
-        ctx.response.statusMessage
-      );
-    }
-    return ctx.response.body;
-  });
-}
-
-const scheduledTasks = false;
-
-const tasks = {
-  
-};
-
-const __runningTasks__ = {};
-async function runTask(name, {
-  payload = {},
-  context = {}
-} = {}) {
-  if (__runningTasks__[name]) {
-    return __runningTasks__[name];
-  }
-  if (!(name in tasks)) {
-    throw createError({
-      message: `Task \`${name}\` is not available!`,
-      statusCode: 404
-    });
-  }
-  if (!tasks[name].resolve) {
-    throw createError({
-      message: `Task \`${name}\` is not implemented!`,
-      statusCode: 501
-    });
-  }
-  const handler = await tasks[name].resolve();
-  const taskEvent = { name, payload, context };
-  __runningTasks__[name] = handler.run(taskEvent);
-  try {
-    const res = await __runningTasks__[name];
-    return res;
-  } finally {
-    delete __runningTasks__[name];
-  }
-}
-
 if (!globalThis.crypto) {
   globalThis.crypto = nodeCrypto.webcrypto;
 }
@@ -3498,33 +4477,6 @@ const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: styles
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const bodySchema = z.object({
-  schema: z.string().default("machinesSmoke")
-});
-const smokeValues = [
-  ["pageOrder", "modelId", "machineName", "cutRate", "featurePrimary"],
-  ["10", "variocut", "Variocut", "140", "Highly versatile"],
-  ["20", "kl-bv", "KL-BV", "330", "Accurate silicone cuts"]
-];
-const valuesSmoke_post = defineEventHandler(async (event) => {
-  const body = bodySchema.parse(await readBody(event).catch(() => ({})));
-  const schema = schemas[body.schema];
-  if (!schema) {
-    throw createError({ statusCode: 400, statusMessage: `Unknown schema: ${body.schema}` });
-  }
-  const transformed = transformAndValidateRows(smokeValues, schema);
-  return {
-    headers: smokeValues[0],
-    records: transformed.records,
-    errors: transformed.errors
-  };
-});
-
-const valuesSmoke_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: valuesSmoke_post
-}, Symbol.toStringTag, { value: 'Module' }));
-
 function renderPayloadResponse(ssrContext) {
 	return {
 		body: stringify(splitPayload(ssrContext).payload, ssrContext["~payloadReducers"]) ,
@@ -3611,7 +4563,7 @@ const renderer = defineRenderHandler(async (event) => {
 	// Get route options (for `ssr: false`, `isr`, `cache` and `noScripts`)
 	const routeOptions = getRouteRules(event);
 	// Whether we are prerendering route or using ISR/SWR caching
-	const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && (NUXT_RUNTIME_PAYLOAD_EXTRACTION);
+	const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && ((routeOptions.isr || routeOptions.cache));
 	const isRenderingPayload = (_PAYLOAD_EXTRACTION || routeOptions.prerender) && PAYLOAD_URL_RE.test(ssrContext.url);
 	if (isRenderingPayload) {
 		const url = ssrContext.url.substring(0, ssrContext.url.lastIndexOf("/")) || "/";

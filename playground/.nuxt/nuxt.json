@@ -1,7 +1,7 @@
 {
-  "_hash": "_wzNKGob964bmxt-V2NWCf_jM9y_OZowvYBtMMfzEXA",
+  "_hash": "8g5DXFggaQpYWiWgJQu0vSwR_s5uKBffzuziAXG32Hw",
   "project": {
-    "rootDir": "/Users/richardstephenson/LocalProjects/metzner/packages/nuxt-google-sheets-import/playground"
+    "rootDir": "/Users/richardstephenson/LocalProjects/nuxt-google-sheets-import/playground"
   },
   "versions": {
     "nuxt": "4.3.1"

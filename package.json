@@ -1,60 +1,65 @@
 {
-  "name": "@tribeweb/nuxt-google-sheets-import",
-  "version": "0.1.0",
+  "name": "nuxt-google-sheets-import",
+  "version": "1.0.0",
   "description": "Schema-driven Google Sheets import module for Nuxt Content",
-  "type": "module",
+  "repository": "tribeweb/nuxt-google-sheets-import",
   "license": "MIT",
-  "homepage": "https://github.com/tribeweb/metzner/tree/main/packages/nuxt-google-sheets-import",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tribeweb/metzner.git",
-    "directory": "packages/nuxt-google-sheets-import"
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
   },
-  "bugs": {
-    "url": "https://github.com/tribeweb/metzner/issues"
-  },
-  "publishConfig": {
-    "access": "public"
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/module.mjs",
-  "types": "./dist/module.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/module.d.ts",
-      "import": "./dist/module.mjs"
-    }
-  },
-  "sideEffects": false,
+  "workspaces": [
+    "playground"
+  ],
   "scripts": {
-    "build": "nuxt-module-build",
-    "dev:prepare": "nuxt-module-build --stub",
-    "lint": "eslint src --ext .ts,.vue",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
-    "smoke:playground": "node playground/scripts/smoke.mjs",
-    "pack:dry-run": "npm pack --dry-run",
-    "release:check": "pnpm lint && pnpm build && pnpm pack:dry-run",
-    "release:bump:patch": "npm version patch --no-git-tag-version",
-    "release:bump:minor": "npm version minor --no-git-tag-version",
-    "release:bump:major": "npm version major --no-git-tag-version",
-    "release:patch": "pnpm release:bump:patch && pnpm release:check && pnpm publish --access public",
-    "release:minor": "pnpm release:bump:minor && pnpm release:check && pnpm publish --access public",
-    "release:major": "pnpm release:bump:major && pnpm release:check && pnpm publish --access public"
-  },
-  "peerDependencies": {
-    "nuxt": "^4.0.0"
+    "prepack": "nuxt-module-build build",
+    "dev": "npm run dev:prepare && nuxt dev playground",
+    "dev:build": "nuxt build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
+    "@nuxt/content": "^3.12.0",
     "@nuxt/kit": "^4.3.1",
+    "@nuxt/ui": "^4.5.1",
+    "better-sqlite3": "^12.6.2",
     "js-yaml": "^4.1.1",
+    "tailwindcss": "^4.2.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
+    "@iconify-json/lucide": "^1.2.95",
+    "@nuxt/devtools": "^3.2.1",
+    "@nuxt/eslint-config": "^1.15.1",
     "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.3.1",
+    "@nuxt/test-utils": "^4.0.0",
     "@types/js-yaml": "^4.0.9",
-    "typescript": "^5.9.3",
+    "@types/node": "latest",
+    "changelogen": "^0.6.2",
+    "eslint": "^10.0.1",
+    "nuxt": "^4.3.1",
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.18",
     "vue-tsc": "^3.2.5"
   }
 }

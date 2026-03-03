@@ -1,6 +1,5 @@
 import { z } from 'zod'
 import { googleSheetsImportSchemas as schemas } from '#imports'
-import { getByPath } from '../utils/googleSheets'
 import { transformAndValidateRows } from '../utils/transform'
 
 const bodySchema = z.object({
@@ -16,14 +15,11 @@ interface ValuesResponse {
 
 export default defineEventHandler(async (event) => {
   const body = bodySchema.parse(await readBody(event))
-  const config = useRuntimeConfig(event)
-  const moduleConfig = config.googleSheetsImport as {
-    googleApiKeyRuntimeKey: string
-  }
+  const { googleSheetsImport } = useRuntimeConfig()
+  const apiKey = googleSheetsImport?.googleApiKeyRuntimeKey
 
-  const apiKey = getByPath(config as Record<string, unknown>, moduleConfig.googleApiKeyRuntimeKey)
   if (!apiKey || typeof apiKey !== 'string') {
-    throw createError({ statusCode: 500, statusMessage: `Missing Google API key at runtimeConfig.${moduleConfig.googleApiKeyRuntimeKey}` })
+    throw createError({ statusCode: 500, statusMessage: `Missing Google API key in nuxt.config googleSheetsImport: { googleApiKeyRuntimeKey: '${apiKey}' }` })
   }
 
   const encodedRange = encodeURIComponent(`${body.sheetTitle}!${body.range}`)

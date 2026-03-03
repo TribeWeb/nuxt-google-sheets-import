@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { columnCountToRange, getByPath } from '../utils/googleSheets'
+import { columnCountToRange } from '../utils/googleSheets'
 
 const querySchema = z.object({
   spreadsheetId: z.string().length(44)
@@ -17,16 +17,13 @@ type GoogleSheetsResponse = {
 }
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig(event)
-  const moduleConfig = config.googleSheetsImport as {
-    googleApiKeyRuntimeKey: string
-  }
+  const { googleSheetsImport } = useRuntimeConfig()
+  const apiKey = googleSheetsImport?.googleApiKeyRuntimeKey
 
   const { spreadsheetId } = await getValidatedQuery(event, query => querySchema.parse(query))
-  const apiKey = getByPath(config as Record<string, unknown>, moduleConfig.googleApiKeyRuntimeKey)
 
   if (!apiKey || typeof apiKey !== 'string') {
-    throw createError({ statusCode: 500, statusMessage: `Missing Google API key at runtimeConfig.${moduleConfig.googleApiKeyRuntimeKey}` })
+    throw createError({ statusCode: 500, statusMessage: `Missing Google API key in nuxt.config googleSheetsImport: { googleApiKeyRuntimeKey: '${apiKey}' }` })
   }
 
   const response = await $fetch<GoogleSheetsResponse>(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`)
