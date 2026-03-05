@@ -7,9 +7,9 @@ describe('ssr', async () => {
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
   })
 
-  it('renders the index page', async () => {
-    // Get response to a server-rendered page with `$fetch`.
-    const html = await $fetch('/')
+  it('renders the injected import page', async () => {
+    // Validate the route added by the module via extendPages.
+    const html = await $fetch('/google-sheets-import')
     expect(html).toContain('<div>basic</div>')
   })
 })
