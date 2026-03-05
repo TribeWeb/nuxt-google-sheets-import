@@ -1,5 +1,6 @@
 # Dependencies
 node_modules
+**/node_modules/
 
 # Logs
 *.log*
@@ -15,11 +16,15 @@ node_modules
 
 # Generated dirs
 dist
+**/dist/
 
 # Nuxt
 .nuxt
 .output
 .data
+**/.nuxt/
+**/.output/
+**/.data/
 .vercel_build_output
 .build-*
 .netlify
