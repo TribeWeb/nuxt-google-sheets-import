@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { resolveCollectionTypeBySchema } from '../utils/collectionType'
 import { getSchemaColumns, PAGE_SCHEMA_OVERRIDE_COLUMNS } from '../utils/schemaColumns'
 import { getValidatedQuery, defineEventHandler, createError } from 'h3'
-import { useRuntimeConfig } from 'nitropack/runtime'
+import { useRuntimeConfig } from '#imports'
 
 const querySchema = z.object({
   schema: z.string().optional(),

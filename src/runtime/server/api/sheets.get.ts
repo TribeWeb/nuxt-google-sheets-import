@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { columnCountToRange } from '../utils/googleSheets'
 import { getValidatedQuery, defineEventHandler, createError } from 'h3'
-import { useRuntimeConfig } from 'nitropack/runtime'
+import { useRuntimeConfig } from '#imports'
 
 const querySchema = z.object({
   spreadsheetId: z.string().length(44),

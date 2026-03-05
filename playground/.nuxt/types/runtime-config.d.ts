@@ -28,10 +28,6 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
 
          example: string,
       },
-
-      schemaRegistryImport: string,
-
-      schemaRegistryExport: string,
    },
 
    icon: {
@@ -77,7 +73,53 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       components: {
          prose: boolean,
 
-         map: any,
+         map: {
+            accordion: string,
+
+            "accordion-item": string,
+
+            badge: string,
+
+            callout: string,
+
+            card: string,
+
+            "card-group": string,
+
+            caution: string,
+
+            "code-collapse": string,
+
+            "code-group": string,
+
+            "code-icon": string,
+
+            "code-preview": string,
+
+            "code-tree": string,
+
+            collapsible: string,
+
+            field: string,
+
+            "field-group": string,
+
+            icon: string,
+
+            kbd: string,
+
+            note: string,
+
+            steps: string,
+
+            tabs: string,
+
+            "tabs-item": string,
+
+            tip: string,
+
+            warning: string,
+         },
 
          customElements: Array<any>,
       },
@@ -101,13 +143,15 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       highlight: {
          noApiRoute: boolean,
 
-         highlighter: string,
-
          theme: {
+            light: string,
+
             default: string,
 
             dark: string,
          },
+
+         highlighter: string,
 
          shikiEngine: string,
 

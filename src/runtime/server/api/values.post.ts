@@ -1,7 +1,8 @@
 import { z } from 'zod'
 import { transformAndValidateRows } from '../utils/transform'
 import { readBody, defineEventHandler, createError } from 'h3'
-import { useRuntimeConfig } from 'nitropack/runtime'
+import { useRuntimeConfig } from '#imports'
+import { schemas } from '../../import/schemas'
 
 const bodySchema = z.object({
   spreadsheetId: z.string().length(44),
@@ -27,7 +28,7 @@ export default defineEventHandler(async (event) => {
   const googleResponse = await $fetch<ValuesResponse>(`https://sheets.googleapis.com/v4/spreadsheets/${body.spreadsheetId}/values/${encodedRange}?key=${apiKey}`)
 
   const values = googleResponse.values ?? []
-  const schemaMap = {} as Record<string, z.ZodTypeAny>
+  const schemaMap = schemas as Record<string, z.ZodTypeAny>
   const schema = schemaMap[body.schema]
 
   if (!schema) {

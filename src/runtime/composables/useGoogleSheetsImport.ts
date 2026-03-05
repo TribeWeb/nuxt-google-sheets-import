@@ -1,3 +1,5 @@
+import { useRuntimeConfig } from '#imports'
+
 interface GoogleSheetOption {
   label: string
   range: string

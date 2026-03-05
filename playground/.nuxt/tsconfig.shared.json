@@ -2,7 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@unhead/vue": [
-        "../../node_modules/.pnpm/@unhead+vue@2.1.9_vue@3.5.29_typescript@5.9.3_/node_modules/@unhead/vue"
+        "../../node_modules/.pnpm/@unhead+vue@2.1.10_vue@3.5.29_typescript@5.9.3_/node_modules/@unhead/vue"
       ],
       "@nuxt/devtools": [
         "../../node_modules/.pnpm/@nuxt+devtools@3.2.2_vite@7.3.1_@types+node@25.3.3_jiti@2.6.1_lightningcss@1.31.1_terse_078dd572c4749bbc7ebbe82561bb81b6/node_modules/@nuxt/devtools"
@@ -36,9 +36,6 @@
       ],
       "@nuxt/ui": [
         "../../node_modules/.pnpm/@nuxt+ui@4.5.1_@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2__@tiptap+exten_79f63f5fd1e55468227ea588678251f6/node_modules/@nuxt/ui"
-      ],
-      "@nuxt/content": [
-        "../../node_modules/.pnpm/@nuxt+content@3.12.0_better-sqlite3@12.6.2_magicast@0.5.2/node_modules/@nuxt/content"
       ],
       "@nuxtjs/mdc": [
         "../../node_modules/.pnpm/@nuxtjs+mdc@0.20.1_magicast@0.5.2/node_modules/@nuxtjs/mdc"
@@ -146,7 +143,7 @@
         "./mdc-imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev.json"
+        "./manifest/meta/dev"
       ],
       "#build": [
         "."

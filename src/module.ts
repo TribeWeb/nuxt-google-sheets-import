@@ -5,6 +5,7 @@ import {
   addServerHandler,
   createResolver,
   defineNuxtModule,
+  extendPages,
 } from '@nuxt/kit'
 
 export interface ModuleOptions {
@@ -12,8 +13,8 @@ export interface ModuleOptions {
   googleApiKeyRuntimeKey: string
   defaultContentDir: string
   collectionTypeBySchema: Record<string, 'page' | 'data'>
-  schemaRegistryImport: string
-  schemaRegistryExport: string
+  // schemaRegistryImport: string
+  // schemaRegistryExport: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -25,17 +26,14 @@ export default defineNuxtModule<ModuleOptions>({
     '@nuxt/ui': {
       version: '>=4',
     },
-    '@nuxt/content': {
-      version: '>=3',
-    },
   },
   defaults: {
     apiBase: '/api/google-sheets-import',
     googleApiKeyRuntimeKey: 'googleApiKey',
     defaultContentDir: 'content/data',
     collectionTypeBySchema: {},
-    schemaRegistryImport: '#imports',
-    schemaRegistryExport: 'schemas',
+    // schemaRegistryImport: '#imports',
+    // schemaRegistryExport: 'schemas',
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -52,8 +50,8 @@ export default defineNuxtModule<ModuleOptions>({
       googleApiKeyRuntimeKey: options.googleApiKeyRuntimeKey,
       defaultContentDir: options.defaultContentDir,
       collectionTypeBySchema: normalizedCollectionTypeBySchema,
-      schemaRegistryImport: options.schemaRegistryImport,
-      schemaRegistryExport: options.schemaRegistryExport,
+      // schemaRegistryImport: options.schemaRegistryImport,
+      // schemaRegistryExport: options.schemaRegistryExport,
     }
 
     nuxt.options.runtimeConfig.public.googleSheetsImport = {
@@ -63,6 +61,14 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     nuxt.options.css.push(resolver.resolve('./runtime/assets/css/main.css'))
+
+    extendPages((pages) => {
+      pages.push({
+        name: 'google-sheets-import',
+        path: '/google-sheets-import',
+        file: resolver.resolve('./runtime/pages/google-sheets-import.vue'),
+      })
+    })
 
     addServerHandler({
       route: `${options.apiBase}/sheets`,
