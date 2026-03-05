@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.2...v0.1.3)
+
+### 🏡 Chore
+
+- **release:** V0.1.2 ([b25c940](https://github.com/tribeweb/nuxt-google-sheets-import/commit/b25c940))
+- Re-release ([c01235c](https://github.com/tribeweb/nuxt-google-sheets-import/commit/c01235c))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.2
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v1.0.1...v0.1.2)
