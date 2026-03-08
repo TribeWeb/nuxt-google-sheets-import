@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type {} from '../types/nuxt-shims'
 import { computed, onMounted, ref, watch } from 'vue'
+import { useToast } from '#imports'
 import { useGoogleSheetsImport } from '../composables/useGoogleSheetsImport'
 
 interface Props {

@@ -32,7 +32,14 @@ export const example = z.object({
   ),
 })
 
+export const example2 = z.object({
+  title: z.string(),
+  content: z.string(),
+  file: z.instanceof(Blob).or(z.string()),
+})
+
 export const schemas = {
   machinesSmoke,
   example,
+  example2,
 }

@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { resolveCollectionTypeBySchema } from '../utils/collectionType'
 import { getSchemaColumns, PAGE_SCHEMA_OVERRIDE_COLUMNS } from '../utils/schemaColumns'
 import { getValidatedQuery, defineEventHandler, createError } from 'h3'
-import { useRuntimeConfig } from '#imports'
+import { useRuntimeConfig, googleSheetsImportSchemas } from '#imports'
 
 const querySchema = z.object({
   schema: z.string().optional(),
@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     collectionTypeBySchema?: Record<string, 'page' | 'data'>
   }
 
-  const schemaMap = {} as Record<string, z.ZodTypeAny>
+  const schemaMap = (googleSheetsImportSchemas ?? {}) as Record<string, z.ZodTypeAny>
   const availableSchemas = Object.keys(schemaMap).sort((left, right) => left.localeCompare(right))
 
   if (!schema) {

@@ -2,6 +2,7 @@ import {
   addComponentsDir,
   addImports,
   addImportsDir,
+  addServerImports,
   addServerHandler,
   createResolver,
   defineNuxtModule,
@@ -13,8 +14,6 @@ export interface ModuleOptions {
   googleApiKeyRuntimeKey: string
   defaultContentDir: string
   collectionTypeBySchema: Record<string, 'page' | 'data'>
-  // schemaRegistryImport: string
-  // schemaRegistryExport: string
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -32,8 +31,6 @@ export default defineNuxtModule<ModuleOptions>({
     googleApiKeyRuntimeKey: 'googleApiKey',
     defaultContentDir: 'content/data',
     collectionTypeBySchema: {},
-    // schemaRegistryImport: '#imports',
-    // schemaRegistryExport: 'schemas',
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -50,8 +47,6 @@ export default defineNuxtModule<ModuleOptions>({
       googleApiKeyRuntimeKey: options.googleApiKeyRuntimeKey,
       defaultContentDir: options.defaultContentDir,
       collectionTypeBySchema: normalizedCollectionTypeBySchema,
-      // schemaRegistryImport: options.schemaRegistryImport,
-      // schemaRegistryExport: options.schemaRegistryExport,
     }
 
     nuxt.options.runtimeConfig.public.googleSheetsImport = {
@@ -108,6 +103,11 @@ export default defineNuxtModule<ModuleOptions>({
 
     addImports([
       {
+        from: '~/utils/googleSheetImportSchemas',
+        name: 'schemas',
+        as: 'googleSheetsImportSchemas',
+      },
+      {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiValues',
         type: true,
@@ -136,6 +136,14 @@ export default defineNuxtModule<ModuleOptions>({
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'TransformedGoogleSheetsApiResult',
         type: true,
+      },
+    ])
+
+    addServerImports([
+      {
+        from: '~/utils/googleSheetImportSchemas',
+        name: 'schemas',
+        as: 'googleSheetsImportSchemas',
       },
     ])
   },

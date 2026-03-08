@@ -29,8 +29,6 @@ export default defineNuxtConfig({
   googleSheetsImport: {
     apiBase: '/api/google-sheets-import',
     googleApiKeyRuntimeKey: 'googleApiKey',
-    schemaRegistryImport: '#imports',
-    schemaRegistryExport: 'schemas',
     defaultContentDir: 'content',
     collectionTypeBySchema: {
       machines: 'page',
@@ -135,14 +133,11 @@ Optional prop:
 
 - `initialSchema?: string`
 
-## Schema registry
+## Schema source
 
-The module resolves Zod schemas from a configurable module import so it does not depend on app-specific paths.
+The module resolves Zod schemas from Nuxt auto-imports using `#imports.schemas`.
 
-- `schemaRegistryImport` (default: `#imports`)
-- `schemaRegistryExport` (default: `schemas`)
-
-Expected shape:
+Define a `schemas` export in `~/utils/googleSheetImportSchemas.ts`:
 
 ```ts
 export const schemas = {
@@ -151,23 +146,11 @@ export const schemas = {
 }
 ```
 
-If your schemas are exported from a custom file, point the module to it:
-
-```ts
-export default defineNuxtConfig({
-  modules: ['@tribeweb/nuxt-google-sheets-import'],
-  googleSheetsImport: {
-    schemaRegistryImport: '~/server/google-sheets/schemas',
-    schemaRegistryExport: 'schemas'
-  }
-})
-```
-
 ## Playground smoke test (`values` + `write`)
 
 The playground includes:
 
-- `playground/server/google-sheets/schemas.ts` (tiny local schema registry)
+- `playground/utils/googleSheetImportSchemas.ts` (tiny local schema registry)
 - `POST /api/google-sheets-import/values-smoke` (local transform/validation payload)
 - `playground/scripts/smoke.mjs` (calls `values-smoke`, then module `write` for `frontmatter`, `json`, `yaml`)
 

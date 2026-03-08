@@ -18,43 +18,70 @@ function setCollectionType(map: Record<string, CollectionType>, key: string, typ
   }
 }
 
-async function readCollectionTypeBySchemaFromContentConfig(): Promise<Record<string, CollectionType>> {
+function mergeCollectionTypeMaps(
+  base: Record<string, CollectionType>,
+  additional: Record<string, CollectionType>,
+): Record<string, CollectionType> {
+  return {
+    ...base,
+    ...additional,
+  }
+}
+
+function parseManifestSource(source: string): { collectionTypeBySchema: Record<string, CollectionType>, schemas: string[] } {
+  const result: Record<string, CollectionType> = {}
+  const schemas = new Set<string>()
+  const defaultExportIndex = source.indexOf('export default')
+  const manifestCollectionsSource = defaultExportIndex === -1
+    ? source
+    : source.slice(defaultExportIndex)
+  const collectionTypeMatches = manifestCollectionsSource.matchAll(/"([^"\n]+)"\s*:\s*\{[\s\S]{0,500}?"type"\s*:\s*"(page|data)"/g)
+
+  for (const match of collectionTypeMatches) {
+    const collectionName = match[1]
+    const collectionType = match[2] as CollectionType
+
+    if (collectionName) {
+      schemas.add(collectionName)
+      setCollectionType(result, collectionName, collectionType)
+    }
+  }
+
+  return {
+    collectionTypeBySchema: result,
+    schemas: Array.from(schemas).sort((left, right) => left.localeCompare(right)),
+  }
+}
+
+async function readManifestData(): Promise<{ collectionTypeBySchema: Record<string, CollectionType>, schemas: string[] }> {
+  const candidates = [
+    path.resolve(process.cwd(), '.nuxt/content/manifest.ts'),
+    path.resolve(process.cwd(), '.nuxt/content/manifest.mjs'),
+  ]
+
+  for (const manifestPath of candidates) {
+    try {
+      const source = await readFile(manifestPath, 'utf-8')
+      return parseManifestSource(source)
+    }
+    catch {
+      // Try the next candidate path.
+    }
+  }
+
+  return {
+    collectionTypeBySchema: {},
+    schemas: [],
+  }
+}
+
+async function readCollectionTypeBySchema(): Promise<Record<string, CollectionType>> {
   if (cachedCollectionTypeBySchema) {
     return cachedCollectionTypeBySchema
   }
 
-  const result: Record<string, CollectionType> = {}
-
-  try {
-    const contentConfigPath = path.resolve(process.cwd(), 'content.config.ts')
-    const source = await readFile(contentConfigPath, 'utf-8')
-
-    const collectionTypeMatches = source.matchAll(/(\w+)\s*:\s*defineCollection\([\s\S]{0,900}?type:\s*['"](page|data)['"]/g)
-    for (const match of collectionTypeMatches) {
-      const collectionName = match[1]
-      const collectionType = match[2] as CollectionType
-
-      if (collectionName) {
-        setCollectionType(result, collectionName, collectionType)
-      }
-    }
-
-    const schemaTypeMatches = source.matchAll(/type:\s*['"](page|data)['"][\s\S]{0,900}?schema:\s*schemas\.(\w+)/g)
-    for (const match of schemaTypeMatches) {
-      const collectionType = match[1] as CollectionType
-      const schemaKey = match[2]
-
-      if (schemaKey) {
-        setCollectionType(result, schemaKey, collectionType)
-      }
-    }
-  }
-  catch {
-    cachedCollectionTypeBySchema = {}
-    return cachedCollectionTypeBySchema
-  }
-
-  cachedCollectionTypeBySchema = result
+  const fromManifest = await readManifestData()
+  cachedCollectionTypeBySchema = fromManifest.collectionTypeBySchema
   return cachedCollectionTypeBySchema
 }
 
@@ -66,11 +93,8 @@ export async function resolveCollectionTypeBySchema(
     return 'unknown'
   }
 
-  const mappedInContentConfig = await readCollectionTypeBySchemaFromContentConfig()
-  const map = {
-    ...mappedInContentConfig,
-    ...collectionTypeBySchemaFromConfig,
-  }
+  const mappedFromNuxt = await readCollectionTypeBySchema()
+  const map = mergeCollectionTypeMaps(mappedFromNuxt, collectionTypeBySchemaFromConfig)
 
   const normalizedSchemaKey = schemaKey.trim()
   const collectionType = normalizeSchemaKey(normalizedSchemaKey)
