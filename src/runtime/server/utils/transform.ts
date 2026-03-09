@@ -1,6 +1,7 @@
 import { z } from 'zod'
+import { parseHeaderPath, setDeep } from '../../utils/pathMapping'
+import type { PathSegment } from '../../utils/pathMapping'
 
-type PathSegment = string | number
 type UnknownRecord = Record<string, unknown>
 
 function isZodType(value: unknown): value is z.ZodTypeAny {
@@ -69,59 +70,6 @@ function hasWrapper(schema: z.ZodTypeAny | null, wrapper: 'optional' | 'nullable
   }
 
   return false
-}
-
-function parseHeaderPath(header: string): PathSegment[] {
-  const tokens: PathSegment[] = []
-  const parts = header.split('.')
-
-  for (const part of parts) {
-    const matches = part.matchAll(/([^[]+)|(\[(\d+)\])/g)
-    for (const match of matches) {
-      if (match[1]) {
-        tokens.push(match[1])
-      }
-      if (match[3]) {
-        tokens.push(Number.parseInt(match[3], 10))
-      }
-    }
-  }
-
-  return tokens
-}
-
-function setDeep(target: Record<string, unknown>, path: PathSegment[], value: unknown): void {
-  if (!path.length) {
-    return
-  }
-
-  let cursor: Record<string | number, unknown> = target
-
-  for (let index = 0; index < path.length; index++) {
-    const key = path[index]
-    if (key === undefined) {
-      return
-    }
-
-    const isLast = index === path.length - 1
-    const nextKey = path[index + 1]
-
-    if (isLast) {
-      cursor[key] = value
-      return
-    }
-
-    if (cursor[key] === undefined) {
-      cursor[key] = typeof nextKey === 'number' ? [] : {}
-    }
-
-    const nextCursor = cursor[key]
-    if (!nextCursor || typeof nextCursor !== 'object') {
-      return
-    }
-
-    cursor = nextCursor as Record<string | number, unknown>
-  }
 }
 
 function getObjectShape(schema: z.ZodTypeAny): Record<string, z.ZodTypeAny> | null {

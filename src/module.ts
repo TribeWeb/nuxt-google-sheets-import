@@ -21,6 +21,9 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'googleSheetsImport',
   },
   moduleDependencies: {
+    '@nuxt/content': {
+      version: '>=3',
+    },
     '@nuxt/ui': {
       version: '>=4',
     },

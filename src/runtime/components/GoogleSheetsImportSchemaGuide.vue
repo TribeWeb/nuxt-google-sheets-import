@@ -2,6 +2,8 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useToast } from '#imports'
 import { useGoogleSheetsImport } from '../composables/useGoogleSheetsImport'
+import { copyTextWithSuccessToast } from '../utils/clipboard'
+import { toTsvRow } from '../utils/delimited'
 
 interface Props {
   initialSchema?: string
@@ -81,68 +83,39 @@ onMounted(async () => {
   }
 })
 
-function copyColumns() {
-  const content = columns.value.join('\n')
-  if (!content) {
-    return
-  }
-
-  navigator.clipboard.writeText(content)
-  toast.add({
-    title: 'Copied',
+async function copyColumns() {
+  await copyTextWithSuccessToast({
+    text: columns.value.join('\n'),
+    toast,
     description: 'Column names copied to clipboard.',
-    color: 'success',
+    title: 'Copied',
   })
 }
 
-function csvRow(values: string[]): string {
-  return values
-    .map((value) => {
-      const escaped = value.replaceAll('"', '""')
-      return `"${escaped}"`
-    })
-    .join(',')
-}
-
-function copyColumnsCsv() {
-  const content = csvRow(columns.value)
-  if (!content) {
-    return
-  }
-
-  navigator.clipboard.writeText(content)
-  toast.add({
+async function copyColumnsTsv() {
+  await copyTextWithSuccessToast({
+    text: toTsvRow(columns.value),
+    toast,
+    description: 'Column names copied as a tab-separated row for Google Sheets.',
     title: 'Copied',
-    description: 'Column names copied as a CSV row.',
-    color: 'success',
   })
 }
 
-function copyPageOverrideColumns() {
-  const content = pageOverrideColumns.value.join('\n')
-  if (!content) {
-    return
-  }
-
-  navigator.clipboard.writeText(content)
-  toast.add({
-    title: 'Copied',
+async function copyPageOverrideColumns() {
+  await copyTextWithSuccessToast({
+    text: pageOverrideColumns.value.join('\n'),
+    toast,
     description: 'Page override column names copied to clipboard.',
-    color: 'success',
+    title: 'Copied',
   })
 }
 
-function copyPageOverrideColumnsCsv() {
-  const content = csvRow(pageOverrideColumns.value)
-  if (!content) {
-    return
-  }
-
-  navigator.clipboard.writeText(content)
-  toast.add({
+async function copyPageOverrideColumnsTsv() {
+  await copyTextWithSuccessToast({
+    text: toTsvRow(pageOverrideColumns.value),
+    toast,
+    description: 'Page override column names copied as a tab-separated row for Google Sheets.',
     title: 'Copied',
-    description: 'Page override column names copied as a CSV row.',
-    color: 'success',
   })
 }
 </script>
@@ -200,11 +173,11 @@ function copyPageOverrideColumnsCsv() {
           @click="copyColumns"
         />
         <UButton
-          label="Copy as CSV row"
+          label="Copy as tab-separated row"
           icon="i-heroicons-table-cells-20-solid"
           color="neutral"
           variant="subtle"
-          @click="copyColumnsCsv"
+          @click="copyColumnsTsv"
         />
       </div>
       <pre class="text-xs whitespace-pre-wrap">{{ columns.join('\n') }}</pre>
@@ -230,11 +203,11 @@ function copyPageOverrideColumnsCsv() {
             @click="copyPageOverrideColumns"
           />
           <UButton
-            label="Copy overrides as CSV row"
+            label="Copy overrides as tab-separated row"
             icon="i-heroicons-table-cells-20-solid"
             color="neutral"
             variant="subtle"
-            @click="copyPageOverrideColumnsCsv"
+            @click="copyPageOverrideColumnsTsv"
           />
         </div>
         <pre class="text-xs whitespace-pre-wrap">{{ pageOverrideColumns.join('\n') }}</pre>
