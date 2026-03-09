@@ -7,8 +7,6 @@ const querySchema = z.object({
   schema: z.string().optional(),
 })
 
-type CollectionType = 'page' | 'data'
-
 export default defineEventHandler(async (event) => {
   const { schema } = await getValidatedQuery(event, query => querySchema.parse(query))
   const config = useRuntimeConfig(event)
