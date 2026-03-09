@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.4...v0.1.5)
+
+### 🚀 Enhancements
+
+- Handle scalar arrays as csv & remove unecessary collection type config ([bf9a407](https://github.com/tribeweb/nuxt-google-sheets-import/commit/bf9a407))
+
+### 🏡 Chore
+
+- **release:** V0.1.4 ([830bf56](https://github.com/tribeweb/nuxt-google-sheets-import/commit/830bf56))
+- Refactor to simplify loading of user schemas ([e154b71](https://github.com/tribeweb/nuxt-google-sheets-import/commit/e154b71))
+- Fix failing tests ([6ceca39](https://github.com/tribeweb/nuxt-google-sheets-import/commit/6ceca39))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.4
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.3...v0.1.4)
