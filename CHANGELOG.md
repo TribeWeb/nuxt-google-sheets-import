@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.1.7
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.6...v0.1.7)
+
+### 🚀 Enhancements
+
+- Add ability to export existing pages or data ([bc26057](https://github.com/tribeweb/nuxt-google-sheets-import/commit/bc26057))
+
+### 🏡 Chore
+
+- **release:** V0.1.6 ([ea280fa](https://github.com/tribeweb/nuxt-google-sheets-import/commit/ea280fa))
+- Update readme ([74e9008](https://github.com/tribeweb/nuxt-google-sheets-import/commit/74e9008))
+- Fix lint errors ([b00d39b](https://github.com/tribeweb/nuxt-google-sheets-import/commit/b00d39b))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.6
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.5...v0.1.6)
