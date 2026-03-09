@@ -38,9 +38,7 @@ function resolveContentDirByCollectionType(
   console.warn(
     `[google-sheets-import] No collection type mapping found for schema "${normalizedSchemaKey}". `
     + `Using fallback content directory "${fallback}". `
-    + 'Add googleSheetsImport.collectionTypeBySchema["'
-    + normalizedSchemaKey
-    + '"] in nuxt.config.ts to route writes automatically.',
+    + 'Ensure the matching Nuxt Content collection is defined with type "page" or "data" in content.config.ts.',
   )
 
   return fallback
@@ -51,10 +49,8 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const moduleConfig = config.googleSheetsImport as {
     defaultContentDir: string
-    collectionTypeBySchema?: Record<string, CollectionType>
   }
-  const mappedInConfig = moduleConfig.collectionTypeBySchema ?? {}
-  const resolvedCollectionType = await resolveCollectionTypeBySchema(body.schema, mappedInConfig)
+  const resolvedCollectionType = await resolveCollectionTypeBySchema(body.schema)
   const resolvedContentDir = body.contentDir
     ?? resolveContentDirByCollectionType(resolvedCollectionType, body.schema, moduleConfig.defaultContentDir)
 

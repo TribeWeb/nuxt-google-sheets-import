@@ -14,11 +14,9 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
   const moduleConfig = config.googleSheetsImport as {
     defaultContentDir: string
-    collectionTypeBySchema?: Record<string, CollectionType>
   }
 
-  const fromConfig = moduleConfig.collectionTypeBySchema ?? {}
-  const collectionType = await resolveCollectionTypeBySchema(schema, fromConfig)
+  const collectionType = await resolveCollectionTypeBySchema(schema)
 
   const baseContentDir = collectionType === 'page'
     ? 'content'

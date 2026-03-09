@@ -19,6 +19,7 @@ export const example = z.object({
   unionStringArray: z.union([z.literal('foo'), z.literal('bar')]).array(),
   exclusiveUnionString: z.xor([z.literal('foo'), z.literal('bar')]),
   stringArray: z.string().array(),
+  numberArray: z.coerce.number().array(),
   boolean: z.coerce.boolean(),
   object: z.object({
     key1: z.string().min(1),

@@ -29,14 +29,12 @@ export default defineNuxtConfig({
   googleSheetsImport: {
     apiBase: '/api/google-sheets-import',
     googleApiKeyRuntimeKey: 'googleApiKey',
-    defaultContentDir: 'content',
-    collectionTypeBySchema: {
-      machines: 'page',
-      materials: 'data'
-    }
+    defaultContentDir: 'content'
   }
 })
 ```
+
+Collection type (`page` vs `data`) is derived from your Nuxt Content `content.config.ts` collection definitions.
 
 ## Environment
 
@@ -124,6 +122,7 @@ Benefits:
 
 - Reduces import failures by giving editors exact header names before filling a sheet
 - Supports nested/array header patterns used by schema mapping (for example `items[0].name`)
+- Uses a single column for arrays of scalar values (for example `tags` with `foo, bar, baz`)
 - For `page` collections, shows Nuxt Content built-in page override fields and allows copying them separately
 - Supports two copy modes:
   - line-by-line copy
@@ -132,6 +131,18 @@ Benefits:
 Optional prop:
 
 - `initialSchema?: string`
+
+### Suggested Cell Examples
+
+Use these value patterns when filling sheets:
+
+- `string`: `example text`
+- `number`: `123`
+- `boolean`: `true` or `false`
+- `enum` / `literal`: use one of the schema's allowed values
+- `date-like string`: `2026-01-01`
+- `string[]` (scalar array): `foo, bar, baz` in a single cell
+- `object[]` (array of objects): use indexed headers like `items[0].name`, `items[0].price`
 
 ## Schema source
 

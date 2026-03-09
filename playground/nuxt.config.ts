@@ -9,9 +9,5 @@ export default defineNuxtConfig({
     apiBase: '/api/google-sheets-import',
     googleApiKeyRuntimeKey: 'AIzaSyD-ior9_9IMze4P5iWEtfKa1PakkmHcpec',
     defaultContentDir: 'content',
-    collectionTypeBySchema: {
-      // machinesSmoke: 'data',
-      // example: 'page',
-    },
   },
 })

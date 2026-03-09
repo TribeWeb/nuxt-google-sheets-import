@@ -88,8 +88,15 @@ function collectSchemaColumns(schema: z.ZodTypeAny, prefix = ''): string[] {
     const arrayPrefix = `${prefix}[0]`
     const elementCandidate = getDefValue(unwrapped as unknown, 'element')
     const arrayElement = isZodType(elementCandidate) ? elementCandidate : null
-    const nested = arrayElement ? collectSchemaColumns(arrayElement, arrayPrefix) : []
-    return nested.length ? nested : [arrayPrefix]
+
+    // Arrays of objects keep indexed paths (items[0].name). Arrays of scalars
+    // use the parent key so editors can provide comma-separated values in one cell.
+    if (arrayElement && getObjectShape(arrayElement)) {
+      const nested = collectSchemaColumns(arrayElement, arrayPrefix)
+      return nested.length ? nested : [arrayPrefix]
+    }
+
+    return prefix ? [prefix] : [arrayPrefix]
   }
 
   const objectShape = getObjectShape(unwrapped)

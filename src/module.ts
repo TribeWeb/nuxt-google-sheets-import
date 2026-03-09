@@ -13,7 +13,6 @@ export interface ModuleOptions {
   apiBase: string
   googleApiKeyRuntimeKey: string
   defaultContentDir: string
-  collectionTypeBySchema: Record<string, 'page' | 'data'>
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -30,29 +29,21 @@ export default defineNuxtModule<ModuleOptions>({
     apiBase: '/api/google-sheets-import',
     googleApiKeyRuntimeKey: 'googleApiKey',
     defaultContentDir: 'content/data',
-    collectionTypeBySchema: {},
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
-    const normalizedCollectionTypeBySchema = Object.entries(options.collectionTypeBySchema).reduce<Record<string, 'page' | 'data'>>((acc, [key, value]) => {
-      const trimmed = key.trim()
-      acc[trimmed] = value
-      acc[trimmed.toLowerCase()] = value
-      acc[trimmed.replace(/[-\s]+/g, '_').toLowerCase()] = value
-      return acc
-    }, {})
 
     nuxt.options.runtimeConfig.googleSheetsImport = {
+      ...nuxt.options.runtimeConfig.googleSheetsImport,
       apiBase: options.apiBase,
       googleApiKeyRuntimeKey: options.googleApiKeyRuntimeKey,
       defaultContentDir: options.defaultContentDir,
-      collectionTypeBySchema: normalizedCollectionTypeBySchema,
     }
 
     nuxt.options.runtimeConfig.public.googleSheetsImport = {
+      ...nuxt.options.runtimeConfig.public.googleSheetsImport,
       apiBase: options.apiBase,
       defaultContentDir: options.defaultContentDir,
-      collectionTypeBySchema: normalizedCollectionTypeBySchema,
     }
 
     nuxt.options.css.push(resolver.resolve('./runtime/assets/css/main.css'))

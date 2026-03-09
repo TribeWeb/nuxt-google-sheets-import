@@ -18,16 +18,6 @@ function setCollectionType(map: Record<string, CollectionType>, key: string, typ
   }
 }
 
-function mergeCollectionTypeMaps(
-  base: Record<string, CollectionType>,
-  additional: Record<string, CollectionType>,
-): Record<string, CollectionType> {
-  return {
-    ...base,
-    ...additional,
-  }
-}
-
 function parseManifestSource(source: string): { collectionTypeBySchema: Record<string, CollectionType>, schemas: string[] } {
   const result: Record<string, CollectionType> = {}
   const schemas = new Set<string>()
@@ -87,14 +77,12 @@ async function readCollectionTypeBySchema(): Promise<Record<string, CollectionTy
 
 export async function resolveCollectionTypeBySchema(
   schemaKey: string | undefined,
-  collectionTypeBySchemaFromConfig: Record<string, CollectionType>,
 ): Promise<CollectionType | 'unknown'> {
   if (!schemaKey) {
     return 'unknown'
   }
 
-  const mappedFromNuxt = await readCollectionTypeBySchema()
-  const map = mergeCollectionTypeMaps(mappedFromNuxt, collectionTypeBySchemaFromConfig)
+  const map = await readCollectionTypeBySchema()
 
   const normalizedSchemaKey = schemaKey.trim()
   const collectionType = normalizeSchemaKey(normalizedSchemaKey)
