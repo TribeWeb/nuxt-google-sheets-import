@@ -27,7 +27,6 @@ export default defineNuxtConfig({
   modules: ['nuxt-google-sheets-import'],
   googleSheetsImport: {
     apiBase: '/api/google-sheets-import',
-    googleApiKeyRuntimeKey: 'googleApiKey',
     defaultContentDir: 'content/data'
   }
 })
@@ -86,9 +85,3 @@ cd docs
 npm install
 npm run dev
 ```
-
-## Docs Authoring Notes
-
-- Canonical docs content lives in [docs/content](docs/content).
-- Keep root README concise and avoid duplicating long procedural content from docs pages.
-- Replace Docus template placeholders as docs pages are completed.
