@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: ['nuxt-studio'],
   // modules: ['@nuxt/ui'],
-  css: ['~/assets/css/main.css'],
+  // css: ['~/assets/css/main.css'],
   site: {
     name: 'Nuxt Google Sheets Import',
   },
