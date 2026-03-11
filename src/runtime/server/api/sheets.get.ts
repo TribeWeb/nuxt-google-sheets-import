@@ -19,8 +19,8 @@ type GoogleSheetsResponse = {
 }
 
 export default defineEventHandler(async (event) => {
-  const { googleSheetsImport } = useRuntimeConfig()
-  const apiKey = googleSheetsImport?.googleApiKeyRuntimeKey
+  const config = useRuntimeConfig(event)
+  const apiKey = config.googleApiKey
 
   const { spreadsheetId } = await getValidatedQuery(event, query => querySchema.parse(query))
 

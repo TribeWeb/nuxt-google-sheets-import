@@ -16,8 +16,9 @@ interface ValuesResponse {
 
 export default defineEventHandler(async (event) => {
   const body = bodySchema.parse(await readBody(event))
-  const { googleSheetsImport } = useRuntimeConfig()
-  const apiKey = googleSheetsImport?.googleApiKeyRuntimeKey
+
+  const config = useRuntimeConfig(event)
+  const apiKey = config.googleApiKey
 
   if (!apiKey || typeof apiKey !== 'string') {
     throw createError({ statusCode: 500, statusMessage: `Missing Google API key in nuxt.config googleSheetsImport: { googleApiKeyRuntimeKey: '${apiKey}' }` })

@@ -11,7 +11,6 @@ import {
 
 export interface ModuleOptions {
   apiBase: string
-  googleApiKeyRuntimeKey: string
   defaultContentDir: string
 }
 
@@ -30,7 +29,6 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     apiBase: '/api/google-sheets-import',
-    googleApiKeyRuntimeKey: 'googleApiKey',
     defaultContentDir: 'content/data',
   },
   setup(options, nuxt) {
@@ -39,7 +37,6 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.googleSheetsImport = {
       ...nuxt.options.runtimeConfig.googleSheetsImport,
       apiBase: options.apiBase,
-      googleApiKeyRuntimeKey: options.googleApiKeyRuntimeKey,
       defaultContentDir: options.defaultContentDir,
     }
 
