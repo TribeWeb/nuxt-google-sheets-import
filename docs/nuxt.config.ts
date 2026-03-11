@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['nuxt-studio'],
+  // modules: ['@nuxt/ui'],
+  css: ['~/assets/css/main.css'],
   studio: {
     repository: {
       provider: 'github',
