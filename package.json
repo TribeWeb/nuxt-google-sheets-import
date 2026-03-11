@@ -23,7 +23,8 @@
     "dist"
   ],
   "workspaces": [
-    "playground"
+    "playground",
+    "docs"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
