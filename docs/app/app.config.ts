@@ -18,6 +18,8 @@ export default defineAppConfig({
     nuxt: 'https://nuxt.com',
   },
   github: {
+    url: 'https://github.com/tribeweb/nuxt-google-sheets-import',
+    branch: 'main',
     rootDir: 'docs',
   },
   //   assistant: {
