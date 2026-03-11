@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   modules: ['nuxt-studio'],
   studio: {
+    repository: {
+      provider: 'github',
+      owner: 'tribeweb',
+      repo: 'nuxt-google-sheets-import',
+    },
     ai: {
       context: {
         title: 'Nuxt Google Sheets Import',
