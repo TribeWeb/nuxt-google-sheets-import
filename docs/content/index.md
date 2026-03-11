@@ -27,7 +27,7 @@ Bulk-edit frontmatter in spreadsheets, validate with Zod, then write back to mar
   :::u-button
   ---
   color: neutral
-  icon: simple-icons-github
+  icon: i-lucide-github
   size: xl
   to: /getting-started/installation
   variant: outline
@@ -47,7 +47,7 @@ Core capabilities
   ---
   #title
   Schema-driven transforms
-  
+
   #description
   Validate and coerce row data using your Nuxt Content Zod schemas.
   :::
@@ -58,7 +58,7 @@ Core capabilities
   ---
   #title
   Content write targets
-  
+
   #description
   Write output as markdown frontmatter, JSON, or YAML.
   :::
@@ -69,7 +69,7 @@ Core capabilities
   ---
   #title
   Import + export workflow
-  
+
   #description
   Use the built-in `/google-sheets-import` page with setup, import, and export tabs.
   :::
@@ -80,7 +80,7 @@ Core capabilities
   ---
   #title
   Google Sheets-friendly export
-  
+
   #description
   Copy tab-separated rows for direct Sheets paste, or download quoted CSV.
   :::
@@ -91,7 +91,7 @@ Core capabilities
   ---
   #title
   Overwrite strategies
-  
+
   #description
   Control write behavior with `overwrite`, `skip`, or `overwrite-frontmatter`.
   :::
@@ -102,7 +102,7 @@ Core capabilities
   ---
   #title
   Collection-aware behavior
-  
+
   #description
   Resolve `page` vs `data` collection types from Nuxt Content and surface matching schema columns.
   :::
