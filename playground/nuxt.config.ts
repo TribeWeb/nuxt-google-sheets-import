@@ -4,10 +4,12 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
   devtools: { enabled: true },
+  runtimeConfig: {
+    googleApiKey: '',
+  },
   compatibilityDate: 'latest',
   googleSheetsImport: {
     apiBase: '/api/google-sheets-import',
-    googleApiKeyRuntimeKey: 'AIzaSyD-ior9_9IMze4P5iWEtfKa1PakkmHcpec',
     defaultContentDir: 'content',
   },
 })

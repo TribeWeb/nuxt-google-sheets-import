@@ -1,29 +1,27 @@
 ---
 seo:
-  title: Write beautiful docs with Markdown
-  description: Ship fast, flexible, and SEO-optimized documentation with beautiful
-    design out of the box. Docus brings together the best of the Nuxt ecosystem.
-    Powered by Nuxt UI.
+  title: Nuxt Google Sheets Import
+  description: Schema-driven Google Sheets import and export workflows for Nuxt Content.
 ---
 
 ::u-page-hero
 #title
-Write beautiful docs with Markdown
+Nuxt Google Sheets Import
 
 #description
-Ship fast, flexible, and SEO-optimized documentation with beautiful design out of the box.
+Schema-driven Google Sheets import/export workflows for Nuxt Content projects.
 
-Docus brings the best of the Nuxt ecosystem into one CLI.
+Bulk-edit frontmatter in spreadsheets, validate with Zod, then write back to markdown, JSON, or YAML.
 
 #links
   :::u-button
   ---
   color: neutral
   size: xl
-  to: /getting-started/installation
+  to: /getting-started/introduction
   trailing-icon: i-lucide-arrow-right
   ---
-  Get started
+  Read introduction
   :::
 
   :::u-button
@@ -31,93 +29,81 @@ Docus brings the best of the Nuxt ecosystem into one CLI.
   color: neutral
   icon: simple-icons-github
   size: xl
-  to: https://github.com/nuxt-content/docus
+  to: /getting-started/installation
   variant: outline
   ---
-  Star on GitHub
+  Installation
   :::
 ::
 
 ::u-page-section
 #title
-Shipped with many features
+Core capabilities
 
 #features
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com
+  icon: i-lucide-list-checks
   ---
   #title
-  Built with [Nuxt 4]{.text-primary}
+  Schema-driven transforms
   
   #description
-  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
+  Validate and coerce row data using your Nuxt Content Zod schemas.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/
+  icon: i-lucide-file-text
   ---
   #title
-  Powered by [Nuxt UI]{.text-primary}
+  Content write targets
   
   #description
-  Beautiful out of the box, minimal by design but highly customizable. Docus leverages Nuxt UI to give you the best docs writing experience with zero boilerplate, just focus on your content.
+  Write output as markdown frontmatter, JSON, or YAML.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com
+  icon: i-lucide-columns-3
   ---
   #title
-  Enhanced Markdown syntax by [Nuxt Content]{.text-primary}
+  Import + export workflow
   
   #description
-  The only thing you need to take care about is writing your content. Write your pages in Markdown and extend with MDC syntax to embed Nuxt UI or custom Vue components. Structure, routing, and rendering are handled for you.
+  Use the built-in `/google-sheets-import` page with setup, import, and export tabs.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com/docs/guide/directory-structure/app-config
+  icon: i-lucide-clipboard-paste
   ---
   #title
-  Customize with [Nuxt App Config]{.text-primary}
+  Google Sheets-friendly export
   
   #description
-  Update colors, social links, header logos and component styles globally using the `app.config.ts`, no direct code modifications required.
+  Copy tab-separated rows for direct Sheets paste, or download quoted CSV.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com/studio
+  icon: i-lucide-refresh-cw
   ---
   #title
-  Edit in production with [Nuxt Studio]{.text-primary}
+  Overwrite strategies
   
   #description
-  Edit your content in production with zero Markdown knowledge required. Let your non technical colleagues collaborate on the documentation and integrate Vue components without code skills.
+  Control write behavior with `overwrite`, `skip`, or `overwrite-frontmatter`.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/components/content-search
+  icon: i-lucide-database-zap
   ---
   #title
-  Built-in navigation and [full-text search]{.text-primary}
+  Collection-aware behavior
   
   #description
-  Only focus on ordering your content, Docus handles the search modal and auto-generates the side navigation for you.
+  Resolve `page` vs `data` collection types from Nuxt Content and surface matching schema columns.
   :::
 ::
