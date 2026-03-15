@@ -1,17 +1,21 @@
 ---
 seo:
   title: Nuxt Google Sheets Import
-  description: Schema-driven Google Sheets import and export workflows for Nuxt Content.
+  description: Schema driven Google Sheets import and export workflows for Nuxt Content.
 ---
 
 ::u-page-hero
 #title
 Nuxt Google Sheets Import
 
-#description
-Schema-driven Google Sheets import/export workflows for Nuxt Content projects.
+#headline
+  :::u-icon{:size='80' color="primary" name="i-custom-logo"}
+  :::
 
-Bulk-edit frontmatter in spreadsheets, validate with Zod, then write back to markdown, JSON, or YAML.
+#description
+Schema driven Google Sheets import/export workflows for Nuxt Content projects.
+
+Bulk edit frontmatter in spreadsheets, validate with Zod, then write back to markdown, JSON, or YAML.
 
 #links
   :::u-button
@@ -27,7 +31,7 @@ Bulk-edit frontmatter in spreadsheets, validate with Zod, then write back to mar
   :::u-button
   ---
   color: neutral
-  icon: i-lucide-github
+  icon: i-lucide-download
   size: xl
   to: /getting-started/installation
   variant: outline
@@ -79,10 +83,10 @@ Core capabilities
   icon: i-lucide-clipboard-paste
   ---
   #title
-  Google Sheets-friendly export
+  Export to Google Sheets
 
   #description
-  Copy tab-separated rows for direct Sheets paste, or download quoted CSV.
+  Copy and paste into Google Sheets directly, or download quoted CSV.
   :::
 
   :::u-page-feature
@@ -104,6 +108,6 @@ Core capabilities
   Collection-aware behavior
 
   #description
-  Resolve `page` vs `data` collection types from Nuxt Content and surface matching schema columns.
+  Surface column headings for`data` or `page` collection types. Include page metadata.
   :::
 ::
