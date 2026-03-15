@@ -1,5 +1,7 @@
 import { field, group } from '@nuxt/content/preview'
 
+declare const defineNuxtSchema: <T>(schema: T) => T
+
 export default defineNuxtSchema({
   appConfig: {
     ui: group({

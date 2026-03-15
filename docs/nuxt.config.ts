@@ -1,10 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['nuxt-studio'],
-  // modules: ['@nuxt/ui'],
-  // css: ['~/assets/css/main.css'],
   site: {
     name: 'Nuxt Google Sheets Import',
+  },
+  icon: {
+    customCollections: [{
+      prefix: 'custom',
+      dir: './app/assets/icons',
+    }],
   },
   studio: {
     repository: {

@@ -2,21 +2,21 @@ export default defineAppConfig({
   header: {
     title: 'Docus',
     logo: {
-      light: '/logo/logo-dark.svg',
-      dark: '/logo/logo-light.svg',
+      light: '/logo/logo-light.svg',
+      dark: '/logo/logo-dark.svg',
       alt: 'Docus Logo',
       wordmark: {
-        light: '/logo/wordmark-dark.svg',
-        dark: '/logo/wordmark-light.svg',
+        light: '/logo/wordmark-light.svg',
+        dark: '/logo/wordmark-dark.svg',
       },
       favicon: '/favicon.svg',
     },
   },
-  socials: {
-    x: 'https://x.com/nuxt_js',
-    discord: 'https://discord.com/invite/ps2h6QT',
-    nuxt: 'https://nuxt.com',
-  },
+  //   socials: {
+  //     x: 'https://x.com/nuxt_js',
+  //     discord: 'https://discord.com/invite/ps2h6QT',
+  //     nuxt: 'https://nuxt.com',
+  //   },
   github: {
     url: 'https://github.com/tribeweb/nuxt-google-sheets-import',
     branch: 'main',
@@ -86,8 +86,8 @@ export default defineAppConfig({
   },
   ui: {
     colors: {
-      primary: 'blue',
-      neutral: 'zinc',
+      primary: 'orange',
+      neutral: 'slate',
     },
     pageHero: {
       slots: {
