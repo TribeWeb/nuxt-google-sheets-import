@@ -8,10 +8,5 @@ export default defineContentConfig({
       source: 'example/*.md',
       schema: googleSheetsImportSchemas.example,
     }),
-    example2: defineCollection({
-      type: 'page',
-      source: 'example2/*.md',
-      schema: googleSheetsImportSchemas.example2,
-    }),
   },
 })
