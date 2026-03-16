@@ -9,7 +9,7 @@ seo:
 Nuxt Google Sheets Import
 
 #headline
-  :::u-icon{:size='80' color="primary" name="i-custom-logo"}
+  :::u-icon{:size='80' name="i-custom-logo"}
   :::
 
 #description
@@ -20,7 +20,7 @@ Bulk edit frontmatter in spreadsheets, validate with Zod, then write back to mar
 #links
   :::u-button
   ---
-  color: neutral
+  color: primary
   size: xl
   to: /getting-started/introduction
   trailing-icon: i-lucide-arrow-right
