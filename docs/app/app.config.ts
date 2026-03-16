@@ -1,10 +1,10 @@
 export default defineAppConfig({
   header: {
-    title: 'Docus',
+    title: 'Nuxt Google Sheets Import',
     logo: {
       light: '/logo/logo-light.svg',
       dark: '/logo/logo-dark.svg',
-      alt: 'Docus Logo',
+      alt: 'Nuxt Google Sheets Import Logo',
       wordmark: {
         light: '/logo/wordmark-light.svg',
         dark: '/logo/wordmark-dark.svg',
