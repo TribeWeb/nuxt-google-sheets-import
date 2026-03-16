@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { parseHeaderPath, setDeep } from '../../utils/pathMapping'
-import type { PathSegment } from '../../utils/pathMapping'
+import { parseHeaderPath, setDeep } from '../../../runtime/app/utils/pathMapping'
+import type { PathSegment } from '../../../runtime/app/utils/pathMapping'
 
 type UnknownRecord = Record<string, unknown>
 

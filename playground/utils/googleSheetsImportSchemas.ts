@@ -8,7 +8,7 @@ export const machinesSmoke = z.object({
   featurePrimary: z.string().optional(),
 })
 
-export const example = z.object({
+const example = z.object({
   slug: z.string().min(1).max(100),
   pageOrder: z.coerce.number().int(),
   number: z.coerce.number(),
@@ -33,14 +33,13 @@ export const example = z.object({
   ),
 })
 
-export const example2 = z.object({
+const example2 = z.object({
   title: z.string(),
   content: z.string(),
   file: z.instanceof(Blob).or(z.string()),
 })
 
-export const schemas = {
-  machinesSmoke,
+export const googleSheetsImportSchemas = {
   example,
   example2,
 }

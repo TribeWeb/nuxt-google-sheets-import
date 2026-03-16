@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { googleSheetsImportSchemas, queryCollection, useAsyncData, useToast } from '#imports'
+import { queryCollection, useAsyncData, useToast } from '#imports'
+import { useGoogleSheetsImport } from '../composables/useGoogleSheetsImport'
 import { copyTextWithSuccessToast } from '../utils/clipboard'
 import { toCsvRow, toTsvRow } from '../utils/delimited'
 import { flattenRecordToStringMap } from '../utils/pathMapping'
 
 const toast = useToast()
-const queryCollectionLoose = queryCollection as unknown as (collection: string) => { all: () => Promise<unknown[]> }
+const { getSchemaColumns } = useGoogleSheetsImport()
+const queryCollectionAny = queryCollection as unknown as (collection: string) => { all: () => Promise<unknown[]> }
+
+function queryCollectionRows(collection: string): Promise<Record<string, unknown>[]> {
+  const query = queryCollectionAny(collection)
+  return query.all() as Promise<Record<string, unknown>[]>
+}
 
 const selectedSchema = ref('')
 
@@ -18,14 +25,12 @@ const {
   execute,
   clear,
 } = useAsyncData<Record<string, unknown>[]>(
-  'google-sheets-import-export-records',
   async () => {
     if (!selectedSchema.value) {
       return []
     }
 
-    const result = await queryCollectionLoose(selectedSchema.value).all()
-    return result as Record<string, unknown>[]
+    return await queryCollectionRows(selectedSchema.value)
   },
   {
     immediate: false,
@@ -33,15 +38,28 @@ const {
   },
 )
 
+const {
+  data: schemaNames,
+  error: schemaNamesError,
+} = useAsyncData<string[]>(
+  'google-sheets-import-export-schemas',
+  async () => {
+    const response = await getSchemaColumns()
+    return response.schemas ?? []
+  },
+  {
+    default: () => [],
+  },
+)
+
 const rows = computed(() => rowsData.value ?? [])
-const error = computed(() => loadError.value?.message ?? '')
+const error = computed(() => loadError.value?.message ?? schemaNamesError.value?.message ?? '')
 
 watch(selectedSchema, () => {
   clear()
 })
 
-const schemaMap = computed(() => (googleSheetsImportSchemas ?? {}) as Record<string, unknown>)
-const schemaOptions = computed(() => Object.keys(schemaMap.value)
+const schemaOptions = computed(() => (schemaNames.value ?? [])
   .sort((left, right) => left.localeCompare(right))
   .map(schema => ({ label: schema, value: schema })))
 
