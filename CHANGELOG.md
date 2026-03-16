@@ -1,6 +1,58 @@
 # Changelog
 
 
+## v0.1.8
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.7...v0.1.8)
+
+### 🚀 Enhancements
+
+- Install studio ([607cb00](https://github.com/tribeweb/nuxt-google-sheets-import/commit/607cb00))
+- Add app.config files ([ddf9580](https://github.com/tribeweb/nuxt-google-sheets-import/commit/ddf9580))
+- New icons ([b10f951](https://github.com/tribeweb/nuxt-google-sheets-import/commit/b10f951))
+
+### 🩹 Fixes
+
+- Typescript errors in docs ([9173fa5](https://github.com/tribeweb/nuxt-google-sheets-import/commit/9173fa5))
+- Update node and config ([a7628d2](https://github.com/tribeweb/nuxt-google-sheets-import/commit/a7628d2))
+- Add app folder and css ([9289775](https://github.com/tribeweb/nuxt-google-sheets-import/commit/9289775))
+- Remove local css ([1764dbe](https://github.com/tribeweb/nuxt-google-sheets-import/commit/1764dbe))
+- Missing package ([b3262e2](https://github.com/tribeweb/nuxt-google-sheets-import/commit/b3262e2))
+
+### 📖 Documentation
+
+- Add docus ([b503686](https://github.com/tribeweb/nuxt-google-sheets-import/commit/b503686))
+- Write intro ([23503a5](https://github.com/tribeweb/nuxt-google-sheets-import/commit/23503a5))
+- First draft for all pages ([f98a9b9](https://github.com/tribeweb/nuxt-google-sheets-import/commit/f98a9b9))
+- Update studio config ([8cd5be0](https://github.com/tribeweb/nuxt-google-sheets-import/commit/8cd5be0))
+- Update module options ([1c027b5](https://github.com/tribeweb/nuxt-google-sheets-import/commit/1c027b5))
+- Improve copy & icons ([2933f19](https://github.com/tribeweb/nuxt-google-sheets-import/commit/2933f19))
+- New page and edits ([e900fa0](https://github.com/tribeweb/nuxt-google-sheets-import/commit/e900fa0))
+
+### 🏡 Chore
+
+- **release:** V0.1.7 ([99af3c8](https://github.com/tribeweb/nuxt-google-sheets-import/commit/99af3c8))
+- Remove google api key from nuxt.config module options ([c7bd690](https://github.com/tribeweb/nuxt-google-sheets-import/commit/c7bd690))
+- Update node ([1022ebf](https://github.com/tribeweb/nuxt-google-sheets-import/commit/1022ebf))
+- Revise readme ([8158d8b](https://github.com/tribeweb/nuxt-google-sheets-import/commit/8158d8b))
+- Update readme ([ee3a7c2](https://github.com/tribeweb/nuxt-google-sheets-import/commit/ee3a7c2))
+- Troubleshoot tailwind ([bad9095](https://github.com/tribeweb/nuxt-google-sheets-import/commit/bad9095))
+- More config ([ee0ebd9](https://github.com/tribeweb/nuxt-google-sheets-import/commit/ee0ebd9))
+- Troubleshoot deploy ([337ba48](https://github.com/tribeweb/nuxt-google-sheets-import/commit/337ba48))
+- Tidy up ([a9d4cd8](https://github.com/tribeweb/nuxt-google-sheets-import/commit/a9d4cd8))
+- Update pnpm-lock.yaml ([d533654](https://github.com/tribeweb/nuxt-google-sheets-import/commit/d533654))
+- Match docus settings ([4dfef1e](https://github.com/tribeweb/nuxt-google-sheets-import/commit/4dfef1e))
+- Favicon ([3d0dbc1](https://github.com/tribeweb/nuxt-google-sheets-import/commit/3d0dbc1))
+- Reorganise into app folder ([bcf2e62](https://github.com/tribeweb/nuxt-google-sheets-import/commit/bcf2e62))
+- Fix imports ([f1d970a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/f1d970a))
+- Update test ([41e6590](https://github.com/tribeweb/nuxt-google-sheets-import/commit/41e6590))
+- Update test ([792149b](https://github.com/tribeweb/nuxt-google-sheets-import/commit/792149b))
+- Refactor ([2a868a7](https://github.com/tribeweb/nuxt-google-sheets-import/commit/2a868a7))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.7
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.6...v0.1.7)
