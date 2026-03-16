@@ -7,6 +7,7 @@ import {
   createResolver,
   defineNuxtModule,
   extendPages,
+  addTemplate,
 } from '@nuxt/kit'
 
 export interface ModuleOptions {
@@ -34,6 +35,13 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
+    addTemplate({
+      filename: 'googleSheetsImportSchemaExample.ts',
+      src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemasExample.ts'),
+      dst: 'utils/googleSheetsImportSchemasExample.ts',
+      write: true,
+    })
+
     nuxt.options.runtimeConfig.googleSheetsImport = {
       ...nuxt.options.runtimeConfig.googleSheetsImport,
       apiBase: options.apiBase,
@@ -46,13 +54,13 @@ export default defineNuxtModule<ModuleOptions>({
       defaultContentDir: options.defaultContentDir,
     }
 
-    nuxt.options.css.push(resolver.resolve('./runtime/assets/css/main.css'))
+    nuxt.options.css.push(resolver.resolve('./runtime/app/assets/css/main.css'))
 
     extendPages((pages) => {
       pages.push({
         name: 'google-sheets-import',
         path: '/google-sheets-import',
-        file: resolver.resolve('./runtime/pages/google-sheets-import.vue'),
+        file: resolver.resolve('./runtime/app/pages/google-sheets-import.vue'),
       })
     })
 
@@ -61,7 +69,6 @@ export default defineNuxtModule<ModuleOptions>({
       method: 'get',
       handler: resolver.resolve('./runtime/server/api/sheets.get'),
     })
-
     addServerHandler({
       route: `${options.apiBase}/values`,
       method: 'post',
@@ -86,18 +93,13 @@ export default defineNuxtModule<ModuleOptions>({
       handler: resolver.resolve('./runtime/server/api/write.post'),
     })
 
-    addImportsDir(resolver.resolve('./runtime/composables'))
+    addImportsDir(resolver.resolve('./runtime/app/composables'))
 
     addComponentsDir({
-      path: resolver.resolve('./runtime/components'),
+      path: resolver.resolve('./runtime/app/components'),
     })
 
     addImports([
-      {
-        from: '~/utils/googleSheetImportSchemas',
-        name: 'schemas',
-        as: 'googleSheetsImportSchemas',
-      },
       {
         from: resolver.resolve('./runtime/types/googleSheetsApi'),
         name: 'GoogleSheetsApiValues',
@@ -132,8 +134,8 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerImports([
       {
-        from: '~/utils/googleSheetImportSchemas',
-        name: 'schemas',
+        from: '~/utils/googleSheetsImportSchemas',
+        name: 'googleSheetsImportSchemas',
         as: 'googleSheetsImportSchemas',
       },
     ])

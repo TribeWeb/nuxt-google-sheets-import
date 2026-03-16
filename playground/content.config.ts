@@ -1,17 +1,17 @@
 import { defineContentConfig, defineCollection } from '@nuxt/content'
-import { example, example2 } from './utils/googleSheetImportSchemas'
+import { googleSheetsImportSchemas } from './utils/googleSheetsImportSchemas'
 
 export default defineContentConfig({
   collections: {
     example: defineCollection({
       type: 'page',
       source: 'example/*.md',
-      schema: example,
+      schema: googleSheetsImportSchemas.example,
     }),
     example2: defineCollection({
       type: 'page',
       source: 'example2/*.md',
-      schema: example2,
+      schema: googleSheetsImportSchemas.example2,
     }),
   },
 })
