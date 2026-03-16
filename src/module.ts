@@ -13,6 +13,7 @@ import {
 export interface ModuleOptions {
   apiBase: string
   defaultContentDir: string
+  googleSheets: Array<{ id: string, label: string }>
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -31,6 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     apiBase: '/api/google-sheets-import',
     defaultContentDir: 'content/data',
+    googleSheets: [],
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
@@ -43,15 +45,17 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     nuxt.options.runtimeConfig.googleSheetsImport = {
-      ...nuxt.options.runtimeConfig.googleSheetsImport,
+      ...(nuxt.options.runtimeConfig.googleSheetsImport as Record<string, unknown>),
       apiBase: options.apiBase,
       defaultContentDir: options.defaultContentDir,
+      googleSheets: options.googleSheets,
     }
 
     nuxt.options.runtimeConfig.public.googleSheetsImport = {
-      ...nuxt.options.runtimeConfig.public.googleSheetsImport,
+      ...(nuxt.options.runtimeConfig.public.googleSheetsImport as Record<string, unknown>),
       apiBase: options.apiBase,
       defaultContentDir: options.defaultContentDir,
+      googleSheets: options.googleSheets,
     }
 
     nuxt.options.css.push(resolver.resolve('./runtime/app/assets/css/main.css'))

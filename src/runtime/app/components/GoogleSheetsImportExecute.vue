@@ -18,9 +18,9 @@ const outputFormatOptions = [
 ]
 
 const overwriteModeOptions = [
-  { label: 'Overwrite existing files', value: 'overwrite' },
-  { label: 'Skip files that already exist', value: 'skip' },
-  { label: 'Overwrite frontmatter only (.md only)', value: 'overwrite-frontmatter' },
+  { label: 'Skip existing files', value: 'skip' },
+  { label: 'Overwrite frontmatter only (.md files)', value: 'overwrite-frontmatter' },
+  { label: 'Overwrite all', value: 'overwrite' },
 ]
 
 const {
