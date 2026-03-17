@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.1.9
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.8...v0.1.9)
+
+### 🩹 Fixes
+
+- Define spreadsheet ids in config & rename overwrite rules ([0692209](https://github.com/tribeweb/nuxt-google-sheets-import/commit/0692209))
+
+### 📖 Documentation
+
+- Add missing instructions ([48422d6](https://github.com/tribeweb/nuxt-google-sheets-import/commit/48422d6))
+- First draft complete ([c7fe433](https://github.com/tribeweb/nuxt-google-sheets-import/commit/c7fe433))
+
+### 🏡 Chore
+
+- **release:** V0.1.8 ([38c0f7f](https://github.com/tribeweb/nuxt-google-sheets-import/commit/38c0f7f))
+- Remove commenting and deactivate the file instead ([449589a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/449589a))
+- Refine example schema ([5734a9a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/5734a9a))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.8
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.7...v0.1.8)
