@@ -1,12 +1,4 @@
-import { z } from 'zod'
-
-export const machinesSmoke = z.object({
-  pageOrder: z.number(),
-  modelId: z.string().min(1),
-  machineName: z.string().min(1),
-  cutRate: z.number(),
-  featurePrimary: z.string().optional(),
-})
+import { z } from '@nuxt/content'
 
 const example = z.object({
   slug: z.string().min(1).max(100),
@@ -17,7 +9,6 @@ const example = z.object({
   literalString: z.literal('foo'),
   unionString: z.union([z.literal('foo'), z.literal('bar')]),
   unionStringArray: z.union([z.literal('foo'), z.literal('bar')]).array(),
-  exclusiveUnionString: z.xor([z.literal('foo'), z.literal('bar')]),
   stringArray: z.string().array(),
   numberArray: z.coerce.number().array(),
   boolean: z.coerce.boolean(),
@@ -33,13 +24,6 @@ const example = z.object({
   ),
 })
 
-const example2 = z.object({
-  title: z.string(),
-  content: z.string(),
-  file: z.instanceof(Blob).or(z.string()),
-})
-
 export const googleSheetsImportSchemas = {
   example,
-  example2,
 }
