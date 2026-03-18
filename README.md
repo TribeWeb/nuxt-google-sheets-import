@@ -46,6 +46,12 @@ NUXT_GOOGLE_API_KEY=your_google_sheets_api_key
 
 Then open `/google-sheets-import` in your app.
 
+## Todo
+- [ ] Find out why 'addTemplate' adds the example file to the module root/utils (unintended) as well as the consuming app utils folder (intended). 
+- [ ] Check page overrides are working as expected.
+- [ ] Should @nuxt/ui be a dependency or should it just install? Pretty heavy for one page
+- [ ] Check that development mode is the only mode the module runs in. If not, add safeguards to prevent unintended file writes in production.
+
 ## Repository Development
 
 Development commands:
