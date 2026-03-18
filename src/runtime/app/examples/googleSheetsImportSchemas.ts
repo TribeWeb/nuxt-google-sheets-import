@@ -9,7 +9,6 @@ const example = z.object({
   literalString: z.literal('foo'),
   unionString: z.union([z.literal('foo'), z.literal('bar')]),
   unionStringArray: z.union([z.literal('foo'), z.literal('bar')]).array(),
-  // exclusiveUnionString: z.xor([z.literal('foo'), z.literal('bar')]), // requires zod v4
   stringArray: z.string().array(),
   numberArray: z.coerce.number().array(),
   boolean: z.coerce.boolean(),
