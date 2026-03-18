@@ -1,4 +1,4 @@
-import { z } from '@nuxt/content'
+import { z } from 'zod'
 
 const example = z.object({
   slug: z.string().min(1).max(100),

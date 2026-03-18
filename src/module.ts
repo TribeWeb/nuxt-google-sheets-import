@@ -29,6 +29,9 @@ export default defineNuxtModule<ModuleOptions>({
     '@nuxt/ui': {
       version: '>=4',
     },
+    'zod': {
+      version: '>=4',
+    },
   },
   onInstall() {
     // This runs only when the module is first installed
