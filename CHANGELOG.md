@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.13
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.12...v0.1.13)
+
+### 🩹 Fixes
+
+- Import from nuxt studio and remove xor ([3e3f2c0](https://github.com/tribeweb/nuxt-google-sheets-import/commit/3e3f2c0))
+
+### 🏡 Chore
+
+- **release:** V0.1.12 ([dfb5dab](https://github.com/tribeweb/nuxt-google-sheets-import/commit/dfb5dab))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.12
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.11...v0.1.12)
