@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from '@nuxt/content'
 
 const example = z.object({
   slug: z.string().min(1).max(100),
@@ -9,7 +9,7 @@ const example = z.object({
   literalString: z.literal('foo'),
   unionString: z.union([z.literal('foo'), z.literal('bar')]),
   unionStringArray: z.union([z.literal('foo'), z.literal('bar')]).array(),
-  exclusiveUnionString: z.xor([z.literal('foo'), z.literal('bar')]),
+  // exclusiveUnionString: z.xor([z.literal('foo'), z.literal('bar')]), // requires zod v4
   stringArray: z.string().array(),
   numberArray: z.coerce.number().array(),
   boolean: z.coerce.boolean(),
