@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.10
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.9...v0.1.10)
+
+### 🚀 Enhancements
+
+- Install example schema on install only ([eec0bcd](https://github.com/tribeweb/nuxt-google-sheets-import/commit/eec0bcd))
+
+### 📖 Documentation
+
+- Tweaks ([40903c6](https://github.com/tribeweb/nuxt-google-sheets-import/commit/40903c6))
+
+### 🏡 Chore
+
+- **release:** V0.1.9 ([aa472a6](https://github.com/tribeweb/nuxt-google-sheets-import/commit/aa472a6))
+- Update readme ([865006b](https://github.com/tribeweb/nuxt-google-sheets-import/commit/865006b))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.9
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.8...v0.1.9)
