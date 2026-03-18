@@ -145,7 +145,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerImports([
       {
-        from: '~/app/utils/.googleSheetsImportSchemas.ts',
+        from: '~/utils/.googleSheetsImportSchemas.ts',
         name: 'googleSheetsImportSchemas',
         as: 'googleSheetsImportSchemas',
       },
