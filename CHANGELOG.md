@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.18
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.17...v0.1.18)
+
+### 🩹 Fixes
+
+- Use .js in filename ([e3dec70](https://github.com/tribeweb/nuxt-google-sheets-import/commit/e3dec70))
+
+### 🏡 Chore
+
+- **release:** V0.1.17 ([091b646](https://github.com/tribeweb/nuxt-google-sheets-import/commit/091b646))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.17
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.16...v0.1.17)
