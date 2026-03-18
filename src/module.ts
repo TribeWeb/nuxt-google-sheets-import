@@ -19,6 +19,7 @@ export interface ModuleOptions {
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-google-sheets-import',
+    version: '0.1.9',
     configKey: 'googleSheetsImport',
   },
   moduleDependencies: {
@@ -29,12 +30,8 @@ export default defineNuxtModule<ModuleOptions>({
       version: '>=4',
     },
   },
-  defaults: {
-    apiBase: '/api/google-sheets-import',
-    defaultContentDir: 'content/data',
-    googleSheets: [],
-  },
-  setup(options, nuxt) {
+  onInstall() {
+    // This runs only when the module is first installed
     const resolver = createResolver(import.meta.url)
 
     addTemplate({
@@ -43,6 +40,15 @@ export default defineNuxtModule<ModuleOptions>({
       dst: 'utils/.googleSheetsImportSchemas.ts',
       write: true,
     })
+  },
+
+  defaults: {
+    apiBase: '/api/google-sheets-import',
+    defaultContentDir: 'content/data',
+    googleSheets: [],
+  },
+  setup(options, nuxt) {
+    const resolver = createResolver(import.meta.url)
 
     nuxt.options.runtimeConfig.googleSheetsImport = {
       ...(nuxt.options.runtimeConfig.googleSheetsImport as Record<string, unknown>),
@@ -73,6 +79,7 @@ export default defineNuxtModule<ModuleOptions>({
       method: 'get',
       handler: resolver.resolve('./runtime/server/api/sheets.get'),
     })
+
     addServerHandler({
       route: `${options.apiBase}/values`,
       method: 'post',
