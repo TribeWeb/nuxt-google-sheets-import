@@ -13,3 +13,14 @@ describe('ssr', async () => {
     expect(html).toContain('<div>basic</div>')
   })
 })
+
+describe('fresh install', async () => {
+  await setup({
+    rootDir: fileURLToPath(new URL('./fixtures/fresh-install', import.meta.url)),
+  })
+
+  it('boots without a user schema file', async () => {
+    const html = await $fetch('/google-sheets-import')
+    expect(html).toContain('<div>fresh-install</div>')
+  })
+})
