@@ -35,9 +35,9 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
 
     addTemplate({
-      filename: 'app/utils/googleSheetsImportSchemas.ts',
+      filename: 'googleSheetsImportSchemas.ts',
       src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js'),
-      // dst: 'utils/.googleSheetsImportSchemas.ts',
+      dst: 'utils/.googleSheetsImportSchemas.ts',
       write: true,
     })
   },
