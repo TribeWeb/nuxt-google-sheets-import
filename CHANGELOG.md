@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.22
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.21...v0.1.22)
+
+### 🩹 Fixes
+
+- Passing tests & playground but failing to import IRL ([5f7ed37](https://github.com/tribeweb/nuxt-google-sheets-import/commit/5f7ed37))
+
+### 🏡 Chore
+
+- **release:** V0.1.21 ([7b97045](https://github.com/tribeweb/nuxt-google-sheets-import/commit/7b97045))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.21
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.20...v0.1.21)
