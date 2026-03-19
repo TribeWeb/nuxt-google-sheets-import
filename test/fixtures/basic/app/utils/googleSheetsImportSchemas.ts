@@ -1,11 +1,10 @@
-import { z } from 'zod'
+import * as z from 'zod/v4'
 
-export const smokeSchema = z.object({
-  slug: z.string().min(1),
+const example = z.object({
+  slug: z.string().min(1).max(100),
+  pageOrder: z.coerce.number().int(),
 })
 
-export const schemas = {
-  smokeSchema,
+export const googleSheetsImportSchemas = {
+  example,
 }
-
-export const googleSheetsImportSchemas = schemas

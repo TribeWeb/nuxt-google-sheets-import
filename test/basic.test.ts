@@ -10,7 +10,7 @@ describe('ssr', async () => {
   it('renders the injected import page', async () => {
     // Validate the route added by the module via extendPages.
     const html = await $fetch('/google-sheets-import')
-    expect(html).toContain('<div>basic</div>')
+    expect(html).toContain('Setup Google Sheet')
   })
 })
 
@@ -21,6 +21,6 @@ describe('ssr', async () => {
 
 //   it('boots without a user schema file', async () => {
 //     const html = await $fetch('/google-sheets-import')
-//     expect(html).toContain('<div>fresh-install</div>')
+//     expect(html).toContain('Setup Google Sheet')
 //   })
 // })
