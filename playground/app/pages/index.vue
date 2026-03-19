@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { ButtonProps } from '@nuxt/ui'
 
+defineOptions({
+  name: 'PlaygroundIndexPage',
+})
+
 const links = ref<ButtonProps[]>([
   {
     label: 'Get started',
