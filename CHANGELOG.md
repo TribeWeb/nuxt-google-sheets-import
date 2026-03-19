@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.20
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.19...v0.1.20)
+
+### 🩹 Fixes
+
+- Don't use .file anymore ([056a0f7](https://github.com/tribeweb/nuxt-google-sheets-import/commit/056a0f7))
+
+### 🏡 Chore
+
+- **release:** V0.1.19 ([f175c67](https://github.com/tribeweb/nuxt-google-sheets-import/commit/f175c67))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.19
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.18...v0.1.19)
