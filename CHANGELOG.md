@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.1.19
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.18...v0.1.19)
+
+### 🩹 Fixes
+
+- Update many typos ([eb58bb2](https://github.com/tribeweb/nuxt-google-sheets-import/commit/eb58bb2))
+- Lint errors ([5af444f](https://github.com/tribeweb/nuxt-google-sheets-import/commit/5af444f))
+- Back to .ts ([13cd68c](https://github.com/tribeweb/nuxt-google-sheets-import/commit/13cd68c))
+- Server import error ([d052e72](https://github.com/tribeweb/nuxt-google-sheets-import/commit/d052e72))
+- No `app` required ([76a8b49](https://github.com/tribeweb/nuxt-google-sheets-import/commit/76a8b49))
+- Revert to zod 4 instead of importing from nuxt/content ([2f82b0e](https://github.com/tribeweb/nuxt-google-sheets-import/commit/2f82b0e))
+
+### 🏡 Chore
+
+- **release:** V0.1.18 ([413aea6](https://github.com/tribeweb/nuxt-google-sheets-import/commit/413aea6))
+- Undo LLM nonsense ([c6ba49a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/c6ba49a))
+- Remove test ([df7be96](https://github.com/tribeweb/nuxt-google-sheets-import/commit/df7be96))
+- Restore nuxt ui version ([5d19b21](https://github.com/tribeweb/nuxt-google-sheets-import/commit/5d19b21))
+- Tweak test ([2c5cbc0](https://github.com/tribeweb/nuxt-google-sheets-import/commit/2c5cbc0))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.18
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.17...v0.1.18)
