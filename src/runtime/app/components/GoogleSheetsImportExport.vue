@@ -212,7 +212,7 @@ function downloadCsv() {
 
     <UAlert
       v-if="status === 'success'"
-      title="Export prepared"
+      title="Export prepared ok"
       :description="`${rows.length} row(s), ${headers.length} column(s).`"
       color="success"
       variant="subtle"
