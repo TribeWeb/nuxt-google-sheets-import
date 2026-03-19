@@ -10,7 +10,8 @@ import {
   addTemplate,
 } from '@nuxt/kit'
 
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 export interface ModuleOptions {
   apiBase: string
@@ -35,29 +36,6 @@ export default defineNuxtModule<ModuleOptions>({
     //   version: '>=4',
     // },
   },
-  onInstall() {
-    // This runs only when the module is first installed
-    const resolver = createResolver(import.meta.url)
-
-    const templatePathTs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts')
-    const templatePathJs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js')
-    const templateSource = existsSync(templatePathTs) ? templatePathTs : templatePathJs
-
-    addTemplate({
-      filename: 'googleSheetsImportSchemas',
-      src: templateSource,
-      dst: 'app/utils/googleSheetsImportSchemas.ts',
-      write: true,
-    })
-
-    // addTemplate({
-    //   filename: 'googleSheetsImportSchemas',
-    //   src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts'),
-    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
-    //   write: true,
-    // })
-  },
-
   defaults: {
     apiBase: '/api/google-sheets-import',
     defaultContentDir: 'content/data',
@@ -66,23 +44,21 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    // const templatePathTs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts')
-    // const templatePathJs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js')
-    // const templateSource = existsSync(templatePathTs) ? templatePathTs : templatePathJs
+    const userSchemaPath = resolve(nuxt.options.rootDir, 'app/utils/googleSheetsImportSchemas.ts')
 
-    // addTemplate({
-    //   filename: 'googleSheetsImportSchemas',
-    //   src: templateSource,
-    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
-    //   write: true,
-    // })
+    // Create starter schema once for consumers without overwriting custom edits.
+    if (!existsSync(userSchemaPath)) {
+      const templatePathTs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts')
+      const templatePathJs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js')
+      const templateSource = existsSync(templatePathTs) ? templatePathTs : templatePathJs
 
-    // addTemplate({
-    //   filename: 'googleSheetsImportSchemas',
-    //   src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts'),
-    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
-    //   write: true,
-    // })
+      addTemplate({
+        filename: 'googleSheetsImportSchemas.ts',
+        getContents: () => readFileSync(templateSource, 'utf8'),
+        dst: 'app/utils/googleSheetsImportSchemas.ts',
+        write: true,
+      })
+    }
 
     nuxt.options.runtimeConfig.googleSheetsImport = {
       ...(nuxt.options.runtimeConfig.googleSheetsImport as Record<string, unknown>),
@@ -179,7 +155,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerImports([
       {
-        from: '~/utils/googleSheetsImportSchemas.ts',
+        from: '~/utils/googleSheetsImportSchemas',
         name: 'googleSheetsImportSchemas',
         as: 'googleSheetsImportSchemas',
       },
