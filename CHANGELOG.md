@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.26
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.25...v0.1.26)
+
+### 🚀 Enhancements
+
+- Make zod v4 available to consuming app ([7eb8e0a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/7eb8e0a))
+
+### 🏡 Chore
+
+- **release:** V0.1.25 ([412bd3d](https://github.com/tribeweb/nuxt-google-sheets-import/commit/412bd3d))
+- Import zod as a dependency ([fa1aa89](https://github.com/tribeweb/nuxt-google-sheets-import/commit/fa1aa89))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.25
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.24...v0.1.25)
