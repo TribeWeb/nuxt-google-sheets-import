@@ -53,6 +53,13 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
+    // addTemplate({
+    //   filename: 'googleSheetsImportSchemas.ts',
+    //   src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts'),
+    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
+    //   write: true,
+    // })
+
     nuxt.options.runtimeConfig.googleSheetsImport = {
       ...(nuxt.options.runtimeConfig.googleSheetsImport as Record<string, unknown>),
       apiBase: options.apiBase,
@@ -148,7 +155,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerImports([
       {
-        from: '~/utils/googleSheetsImportSchemas',
+        from: '~/utils/googleSheetsImportSchemas.ts',
         name: 'googleSheetsImportSchemas',
         as: 'googleSheetsImportSchemas',
       },
