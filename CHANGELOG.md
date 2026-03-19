@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.23
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.22...v0.1.23)
+
+### 🩹 Fixes
+
+- .ts on local build, .js IRL ([a83301a](https://github.com/tribeweb/nuxt-google-sheets-import/commit/a83301a))
+
+### 🏡 Chore
+
+- **release:** V0.1.22 ([4498511](https://github.com/tribeweb/nuxt-google-sheets-import/commit/4498511))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.22
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.21...v0.1.22)
