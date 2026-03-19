@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.25
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.24...v0.1.25)
+
+### 🩹 Fixes
+
+- Don't use onInstall - check for file instead ([eeebbe9](https://github.com/tribeweb/nuxt-google-sheets-import/commit/eeebbe9))
+
+### 🏡 Chore
+
+- **release:** V0.1.24 ([72b6f09](https://github.com/tribeweb/nuxt-google-sheets-import/commit/72b6f09))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.24
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.23...v0.1.24)
