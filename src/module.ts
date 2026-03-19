@@ -29,9 +29,9 @@ export default defineNuxtModule<ModuleOptions>({
     '@nuxt/ui': {
       version: '>=4',
     },
-    'zod': {
-      version: '>=4',
-    },
+    // 'zod': {
+    //   version: '>=4',
+    // },
   },
   onInstall() {
     // This runs only when the module is first installed
@@ -148,10 +148,18 @@ export default defineNuxtModule<ModuleOptions>({
 
     addServerImports([
       {
-        from: '~/utils/.googleSheetsImportSchemas.ts',
+        from: '~/utils/googleSheetsImportSchemas',
         name: 'googleSheetsImportSchemas',
         as: 'googleSheetsImportSchemas',
       },
     ])
+
+    // addServerImports([
+    //   {
+    //     from: '~/utils/.googleSheetsImportSchemas.ts',
+    //     name: 'googleSheetsImportSchemas',
+    //     as: 'googleSheetsImportSchemas',
+    //   },
+    // ])
   },
 })
