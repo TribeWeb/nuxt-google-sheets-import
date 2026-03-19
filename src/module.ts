@@ -10,6 +10,8 @@ import {
   addTemplate,
 } from '@nuxt/kit'
 
+import { existsSync } from 'node:fs'
+
 export interface ModuleOptions {
   apiBase: string
   defaultContentDir: string
@@ -37,12 +39,23 @@ export default defineNuxtModule<ModuleOptions>({
     // This runs only when the module is first installed
     const resolver = createResolver(import.meta.url)
 
+    const templatePathTs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts')
+    const templatePathJs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js')
+    const templateSource = existsSync(templatePathTs) ? templatePathTs : templatePathJs
+
     addTemplate({
-      filename: 'googleSheetsImportSchemas',
-      src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts'),
+      filename: 'googleSheetsImportSchemas.ts',
+      src: templateSource,
       dst: 'app/utils/googleSheetsImportSchemas.ts',
       write: true,
     })
+
+    // addTemplate({
+    //   filename: 'googleSheetsImportSchemas',
+    //   src: resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts'),
+    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
+    //   write: true,
+    // })
   },
 
   defaults: {
@@ -52,6 +65,17 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    // const templatePathTs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.ts')
+    // const templatePathJs = resolver.resolve('./runtime/app/examples/googleSheetsImportSchemas.js')
+    // const templateSource = existsSync(templatePathTs) ? templatePathTs : templatePathJs
+
+    // addTemplate({
+    //   filename: 'googleSheetsImportSchemas.ts',
+    //   src: templateSource,
+    //   dst: 'app/utils/googleSheetsImportSchemas.ts',
+    //   write: true,
+    // })
 
     // addTemplate({
     //   filename: 'googleSheetsImportSchemas',
