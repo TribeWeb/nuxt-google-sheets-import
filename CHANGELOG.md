@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.24
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.23...v0.1.24)
+
+### 🩹 Fixes
+
+- Change filename to have no extension ([45e8d82](https://github.com/tribeweb/nuxt-google-sheets-import/commit/45e8d82))
+
+### 🏡 Chore
+
+- **release:** V0.1.23 ([9a5c79f](https://github.com/tribeweb/nuxt-google-sheets-import/commit/9a5c79f))
+- Comment correct code ([9cb5da2](https://github.com/tribeweb/nuxt-google-sheets-import/commit/9cb5da2))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.23
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.22...v0.1.23)
