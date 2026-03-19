@@ -32,9 +32,6 @@ export default defineNuxtModule<ModuleOptions>({
     '@nuxt/ui': {
       version: '>=4',
     },
-    'zod': {
-      version: '>=4',
-    },
   },
   defaults: {
     apiBase: '/api/google-sheets-import',

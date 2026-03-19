@@ -5,6 +5,7 @@
   "repository": "tribeweb/nuxt-google-sheets-import",
   "license": "MIT",
   "type": "module",
+  "packageManager": "pnpm@10.32.1",
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
@@ -21,10 +22,6 @@
   },
   "files": [
     "dist"
-  ],
-  "workspaces": [
-    "playground",
-    "docs"
   ],
   "scripts": {
     "docs:dev": "cd docs && nuxt dev --extends docus",
@@ -47,6 +44,9 @@
     "better-sqlite3": "^12.6.2",
     "js-yaml": "^4.1.1",
     "tailwindcss": "^4.2.1",
+    "zod": "^4.3.6"
+  },
+  "peerDependencies": {
     "zod": "^4.3.6"
   },
   "devDependencies": {

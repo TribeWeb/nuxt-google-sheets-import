@@ -1,4 +1,4 @@
-import * as z from 'zod/v4'
+import { z } from 'zod/v4'
 
 const example = z.object({
   slug: z.string().min(1).max(100),
