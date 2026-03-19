@@ -1,6 +1,6 @@
 {
   "name": "nuxt-google-sheets-import",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Schema-driven Google Sheets import module for Nuxt Content",
   "repository": "tribeweb/nuxt-google-sheets-import",
   "license": "MIT",

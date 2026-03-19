@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.21
+
+[compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.20...v0.1.21)
+
+### 🏡 Chore
+
+- **release:** V0.1.20 ([ded55a4](https://github.com/tribeweb/nuxt-google-sheets-import/commit/ded55a4))
+- Restructured playground into app folder ([bb86620](https://github.com/tribeweb/nuxt-google-sheets-import/commit/bb86620))
+- Made room for injected schemas ([7770250](https://github.com/tribeweb/nuxt-google-sheets-import/commit/7770250))
+- Removed last .file and test injection on tun ([38cb8fc](https://github.com/tribeweb/nuxt-google-sheets-import/commit/38cb8fc))
+- Add defineOptions to prevent lint error ([0271fcf](https://github.com/tribeweb/nuxt-google-sheets-import/commit/0271fcf))
+
+### ❤️ Contributors
+
+- Rich-tribeweb <rich@tribeweb.co.uk>
+
 ## v0.1.20
 
 [compare changes](https://github.com/tribeweb/nuxt-google-sheets-import/compare/v0.1.19...v0.1.20)
