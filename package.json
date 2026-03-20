@@ -23,6 +23,10 @@
   "files": [
     "dist"
   ],
+  "workspaces": [
+    "playground",
+    "docs"
+  ],
   "scripts": {
     "docs:dev": "cd docs && nuxt dev --extends docus",
     "docs:build": "nuxt build docs --extends docus",
