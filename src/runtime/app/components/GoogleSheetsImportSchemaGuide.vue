@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useToast } from '#imports'
 import { useGoogleSheetsImport } from '../composables/useGoogleSheetsImport'
+import { copyTextWithSuccessToast } from '../utils/clipboard'
 import { toTsvRow } from '../utils/delimited'
 
 interface Props {
@@ -12,6 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { getSchemaColumns } = useGoogleSheetsImport()
+const toast = useToast()
 
 const selectedSchema = ref('')
 const availableSchemas = ref<string[]>([])
@@ -20,7 +23,11 @@ const collectionType = ref<'page' | 'data' | 'unknown'>('unknown')
 const pageOverrideColumns = ref<string[]>([])
 const status = ref<'idle' | 'pending' | 'success' | 'error'>('idle')
 const error = ref('')
-const copyFeedback = ref('')
+
+const schemaOptions = computed(() => availableSchemas.value.map(schema => ({
+  label: schema,
+  value: schema,
+})))
 
 async function loadSchemas() {
   status.value = 'pending'
@@ -76,167 +83,134 @@ onMounted(async () => {
   }
 })
 
-async function copyText(text: string, successMessage: string) {
-  if (!text) {
-    return
-  }
-
-  try {
-    await navigator.clipboard.writeText(text)
-    copyFeedback.value = successMessage
-  }
-  catch {
-    copyFeedback.value = 'Could not copy to clipboard.'
-  }
-}
-
 async function copyColumns() {
-  await copyText(columns.value.join('\n'), 'Column names copied to clipboard.')
+  await copyTextWithSuccessToast({
+    text: columns.value.join('\n'),
+    toast,
+    description: 'Column names copied to clipboard.',
+    title: 'Copied',
+  })
 }
 
 async function copyColumnsTsv() {
-  await copyText(toTsvRow(columns.value), 'Column names copied as a tab-separated row for Google Sheets.')
+  await copyTextWithSuccessToast({
+    text: toTsvRow(columns.value),
+    toast,
+    description: 'Column names copied as a tab-separated row for Google Sheets.',
+    title: 'Copied',
+  })
 }
 
 async function copyPageOverrideColumns() {
-  await copyText(pageOverrideColumns.value.join('\n'), 'Page override column names copied to clipboard.')
+  await copyTextWithSuccessToast({
+    text: pageOverrideColumns.value.join('\n'),
+    toast,
+    description: 'Page override column names copied to clipboard.',
+    title: 'Copied',
+  })
 }
 
 async function copyPageOverrideColumnsTsv() {
-  await copyText(toTsvRow(pageOverrideColumns.value), 'Page override column names copied as a tab-separated row for Google Sheets.')
+  await copyTextWithSuccessToast({
+    text: toTsvRow(pageOverrideColumns.value),
+    toast,
+    description: 'Page override column names copied as a tab-separated row for Google Sheets.',
+    title: 'Copied',
+  })
 }
 </script>
 
 <template>
-  <div class="space-y-4 rounded-lg border border-gray-200 p-4 bg-white">
-    <div class="rounded-md border border-gray-200 bg-gray-50 p-3">
-      <p class="text-sm font-semibold text-gray-900">
-        Schema column helper
-      </p>
-      <p class="text-sm text-gray-600">
-        Choose a schema to see the expected Google Sheet column names.
-      </p>
-    </div>
+  <div class="space-y-4">
+    <UAlert
+      title="Schema column helper"
+      description="Choose a schema to see the expected Google Sheet column names."
+      color="neutral"
+      variant="subtle"
+    />
 
-    <div
+    <UAlert
       v-if="error"
-      class="rounded-md border border-red-200 bg-red-50 p-3"
-    >
-      <p class="text-sm font-semibold text-red-900">
-        Could not load schema information
-      </p>
-      <p class="text-sm text-red-700">
-        {{ error }}
-      </p>
-    </div>
+      title="Could not load schema information"
+      :description="error"
+      color="error"
+      variant="subtle"
+    />
 
-    <div class="space-y-1">
-      <label
-        for="schema-select"
-        class="block text-sm font-medium text-gray-800"
-      >
-        Collection schema
-      </label>
-      <p class="text-xs text-gray-500">
-        Pick the schema you want to import.
-      </p>
-      <select
-        id="schema-select"
+    <UFormField
+      label="Collection schema"
+      name="schema"
+      description="Pick the schema you want to import."
+    >
+      <USelect
         v-model="selectedSchema"
-        class="w-full max-w-sm rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900"
-        :disabled="status === 'pending' || !availableSchemas.length"
-      >
-        <option
-          v-if="!availableSchemas.length"
-          value=""
-        >
-          {{ status === 'pending' ? 'Loading schemas...' : 'No schemas found' }}
-        </option>
-        <option
-          v-for="schema in availableSchemas"
-          :key="schema"
-          :value="schema"
-        >
-          {{ schema }}
-        </option>
-      </select>
-    </div>
+        :items="schemaOptions"
+        value-key="value"
+        icon="i-heroicons-cube-20-solid"
+        class="w-full max-w-sm"
+        :loading="status === 'pending'"
+      />
+    </UFormField>
 
-    <div
+    <UAlert
       v-if="status === 'success' && selectedSchema"
-      class="rounded-md border border-gray-200 bg-gray-50 p-3"
-    >
-      <p class="text-sm font-semibold text-gray-900">
-        Expected column names
-      </p>
-      <p class="text-sm text-gray-600">
-        Use these exact headers in your Google Sheet for schema: {{ selectedSchema }}.
-      </p>
-    </div>
-
-    <p
-      v-if="copyFeedback"
-      class="text-sm text-green-700"
-      role="status"
-    >
-      {{ copyFeedback }}
-    </p>
+      title="Expected column names"
+      :description="`Use these exact headers in your Google Sheet for schema: ${selectedSchema}.`"
+      color="neutral"
+      variant="subtle"
+    />
 
     <div
       v-if="columns.length"
       class="space-y-3"
     >
       <div class="flex flex-wrap gap-2">
-        <button
-          type="button"
-          class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
+        <UButton
+          label="Copy column names"
+          icon="i-heroicons-clipboard-document-20-solid"
+          color="neutral"
+          variant="subtle"
           @click="copyColumns"
-        >
-          Copy column names
-        </button>
-        <button
-          type="button"
-          class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
+        />
+        <UButton
+          label="Copy as tab-separated row"
+          icon="i-heroicons-table-cells-20-solid"
+          color="neutral"
+          variant="subtle"
           @click="copyColumnsTsv"
-        >
-          Copy as tab-separated row
-        </button>
+        />
       </div>
-      <pre class="rounded-md border border-gray-200 bg-gray-50 p-3 text-xs whitespace-pre-wrap text-gray-800">{{ columns.join('\n') }}</pre>
+      <pre class="text-xs whitespace-pre-wrap">{{ columns.join('\n') }}</pre>
 
-      <div
+      <UAlert
         v-if="collectionType === 'page' && pageOverrideColumns.length"
-        class="rounded-md border border-gray-200 bg-gray-50 p-3"
-      >
-        <p class="text-sm font-semibold text-gray-900">
-          Nuxt Content page overrides
-        </p>
-        <p class="text-sm text-gray-600">
-          Optional built-in page fields Nuxt Content adds automatically for page collections.
-        </p>
-      </div>
+        title="Nuxt Content page overrides"
+        description="Optional built-in page fields Nuxt Content adds automatically for page collections."
+        color="neutral"
+        variant="subtle"
+      />
 
       <div
         v-if="collectionType === 'page' && pageOverrideColumns.length"
         class="space-y-3"
       >
         <div class="flex flex-wrap gap-2">
-          <button
-            type="button"
-            class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
+          <UButton
+            label="Copy page override columns"
+            icon="i-heroicons-clipboard-document-list-20-solid"
+            color="neutral"
+            variant="subtle"
             @click="copyPageOverrideColumns"
-          >
-            Copy page override columns
-          </button>
-          <button
-            type="button"
-            class="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
+          />
+          <UButton
+            label="Copy overrides as tab-separated row"
+            icon="i-heroicons-table-cells-20-solid"
+            color="neutral"
+            variant="subtle"
             @click="copyPageOverrideColumnsTsv"
-          >
-            Copy overrides as tab-separated row
-          </button>
+          />
         </div>
-        <pre class="rounded-md border border-gray-200 bg-gray-50 p-3 text-xs whitespace-pre-wrap text-gray-800">{{ pageOverrideColumns.join('\n') }}</pre>
+        <pre class="text-xs whitespace-pre-wrap">{{ pageOverrideColumns.join('\n') }}</pre>
       </div>
     </div>
   </div>
